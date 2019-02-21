@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文章分类 | Small Book</title>
+  <title>MySQL权限导出 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="长期使用Mysql以来，难免不会遇到服务器更换，数据库迁移，数据库设置的权限用户少，还可以单条设置，如果数量大，可以使用以下脚本： 123456#!/bin/bashexpgrants()&amp;#123;    mysql -B  -u&apos;root&apos; -p&apos;123456&apos; -N $@ -e &quot;SELECT CONCAT(&apos;SHOW GRANTS FOR &apos;&apos;&apos;, user, &apos;&apos;&apos;@&apos;&apos;&apos;, host,">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL权限导出">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/MySQL权限导出/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="长期使用Mysql以来，难免不会遇到服务器更换，数据库迁移，数据库设置的权限用户少，还可以单条设置，如果数量大，可以使用以下脚本： 123456#!/bin/bashexpgrants()&amp;#123;    mysql -B  -u&apos;root&apos; -p&apos;123456&apos; -N $@ -e &quot;SELECT CONCAT(&apos;SHOW GRANTS FOR &apos;&apos;&apos;, user, &apos;&apos;&apos;@&apos;&apos;&apos;, host,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-18T06:26:29.342Z">
+<meta property="og:updated_time" content="2019-02-21T09:55:32.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文章分类">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="MySQL权限导出">
+<meta name="twitter:description" content="长期使用Mysql以来，难免不会遇到服务器更换，数据库迁移，数据库设置的权限用户少，还可以单条设置，如果数量大，可以使用以下脚本： 123456#!/bin/bashexpgrants()&amp;#123;    mysql -B  -u&apos;root&apos; -p&apos;123456&apos; -N $@ -e &quot;SELECT CONCAT(&apos;SHOW GRANTS FOR &apos;&apos;&apos;, user, &apos;&apos;&apos;@&apos;&apos;&apos;, host,">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -164,20 +165,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article class="article article-type-post show">
-  <header class="article-header" style="border-bottom: 1px solid #ccc">
-  <h1 class="article-title" itemprop="name">
-    文章分类
-  </h1>
-  </header>
+            <article id="post-MySQL权限导出" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL权限导出
+    </h1>
+  
+
+        
+        <a href="/2019/02/21/MySQL权限导出/" class="archive-article-date">
+  	<time datetime="2019-02-21T09:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
+</a>
+        
+      </header>
+    
+   <!-- 目录内容 -->
+    
+   <!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>长期使用Mysql以来，难免不会遇到服务器更换，数据库迁移，数据库设置的权限用户少，还可以单条设置，如果数量大，可以使用以下脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="function"><span class="title">expgrants</span></span>()&#123;</span><br><span class="line">    mysql -B  -u<span class="string">'root'</span> -p<span class="string">'123456'</span> -N <span class="variable">$@</span> -e <span class="string">"SELECT CONCAT('SHOW GRANTS FOR ''', user, '''@''', host, ''';') AS query FROM mysql.user"</span> | mysql -u<span class="string">'root'</span> -p<span class="string">'123456'</span> <span class="variable">$@</span> | sed <span class="string">'s/\(GRANT.*\)/\1;/;s/^\(Grants for .*\)/-- \1/;/--/&#123;x;p;x;&#125;'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">expgrants &gt; ./grants.sql</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>以上脚本会连同root用户一并导出，如果不想导出root，在”AS query FROM mysql.user” 后添加 “where user &lt;&gt; ‘root’”<br>导出后，在目标服务器直接导入sql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u username -p<span class="string">'password'</span> &lt; grants.sql</span><br></pre></td></tr></table></figure>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>目标服务上为非空服务器，已经存在一些账户及权限，需要考虑覆盖的问题</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL管理/" class="article-tag-list-link color3">MySQL管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/21/MySQL权限导出/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
 
   
-  <div class="category-all-page">
-    <h2>共计&nbsp;2&nbsp;个分类</h2>
-    <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/MySQL管理/">MySQL管理</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/Python模块应用/">Python模块应用</a><span class="category-list-item-list-count">1</span></li></ul>
-  </div>
+<nav id="article-nav">
   
-</article>
+  
+    <a href="/2019/02/21/Pysvn模块安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pysvn模块安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
 
           </div>
         </div>
@@ -199,7 +347,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
