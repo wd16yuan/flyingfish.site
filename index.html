@@ -165,6 +165,198 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Socket模块" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/25/Socket模块/">Socket模块</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/25/Socket模块/" class="archive-article-date">
+  	<time datetime="2019-02-25T03:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
+</a>
+        
+      </header>
+    
+   <!-- 目录内容 -->
+    
+   <!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="基本的-Python-socket-模块"><a href="#基本的-Python-socket-模块" class="headerlink" title="基本的 Python socket 模块"></a>基本的 Python socket 模块</h4><p>Python 提供了两个基本的 socket 模块。第一个是 Socket，它提供了标准的 BSD Sockets API。第二个是 SocketServer，它提供了服务器中心类，可以简化网络服务器的开发。Python使用一种异步的方式来实现这种功能，您可以提供一些插件类来处理服务器中应用程序特有的任务。</p>
+<h6 id="Python-类和模块"><a href="#Python-类和模块" class="headerlink" title="Python 类和模块"></a>Python 类和模块</h6><table>
+<thead>
+<tr>
+<th style="text-align:center">类/模块</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Socket</td>
+<td style="text-align:center">低层网络接口（每个 BSD API）</td>
+</tr>
+<tr>
+<td style="text-align:center">SocketServer</td>
+<td style="text-align:center">提供简化网络服务器开发的类</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Socket-模块"><a href="#Socket-模块" class="headerlink" title="Socket 模块"></a>Socket 模块</h4><p>Socket 模块提供了 UNIX 程序员所熟悉的基本网络服务（也称为 BSD API）。这个模块中提供了在构建 socket 服务器和客户机时所需要的所有功能。<br>这个 API 与标准的 C API 之间的区别在于它是面向对象的。在C中，socket 描述符是从 socket 调用中获得的，然后会作为一个参数传递给 BSD API 函数。在 Python 中，socket 方法会向应用 socket 方法的对象返回一个 socket 对象。</p>
+<h6 id="Socket-模块的类方法"><a href="#Socket-模块的类方法" class="headerlink" title="Socket 模块的类方法"></a>Socket 模块的类方法</h6><table>
+<thead>
+<tr>
+<th style="text-align:center">类/模块</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Socket</td>
+<td style="text-align:center">低层网络接口（每个 BSD API）</td>
+</tr>
+<tr>
+<td style="text-align:center">socket.socket(family, type)</td>
+<td style="text-align:center">创建并返回一个新的 socket 对象</td>
+</tr>
+<tr>
+<td style="text-align:center">socket.getfqdn(name)</td>
+<td style="text-align:center">将使用点号分隔的 IP 地址字符串转换成一个完整的域名</td>
+</tr>
+<tr>
+<td style="text-align:center">socket.gethostbyname(hostname)</td>
+<td style="text-align:center">将主机名解析为一个使用点号分隔的 IP 地址字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">socket.fromfd(fd, family, type)</td>
+<td style="text-align:center">从现有的文件描述符创建一个 socket 对象</td>
+</tr>
+</tbody>
+</table>
+<h6 id="Socket-模块的实例方法"><a href="#Socket-模块的实例方法" class="headerlink" title="Socket 模块的实例方法"></a>Socket 模块的实例方法</h6><table>
+<thead>
+<tr>
+<th style="text-align:center">类/模块</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sock.bind( (adrs, port) )</td>
+<td style="text-align:center">将 socket 绑定到一个地址和端口上</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.accept()</td>
+<td style="text-align:center">返回一个客户机 socket（带有客户机端的地址信息）</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.listen(backlog)</td>
+<td style="text-align:center">将 socket 设置成监听模式，能够监听 backlog 外来的连接请求</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.connect( (adrs, port) )</td>
+<td style="text-align:center">将 socket 连接到定义的主机和端口上</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.recv( buflen[, flags] )</td>
+<td style="text-align:center">从 socket 中接收数据，最多 buflen 个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.recvfrom( buflen[, flags] )</td>
+<td style="text-align:center">从 socket 中接收数据，最多 buflen 个字符，同时返回数据来源的远程主机和端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.send( data[, flags] )</td>
+<td style="text-align:center">通过 socket 发送数据</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.sendto( data[, flags], addr )</td>
+<td style="text-align:center">通过 socket 发送数据</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.close()</td>
+<td style="text-align:center">关闭 socket</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.getsockopt( lvl, optname )</td>
+<td style="text-align:center">获得指定 socket 选项的值</td>
+</tr>
+<tr>
+<td style="text-align:center">sock.setsockopt( lvl, optname, val )</td>
+<td style="text-align:center">设置指定 socket 选项的值</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/25/Socket模块/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-cryptsetup分区加密" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
