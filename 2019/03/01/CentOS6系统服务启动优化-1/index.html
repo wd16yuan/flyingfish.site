@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文章分类 | Small Book</title>
+  <title>CentOS6系统服务启动优化 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS6系统服务启动优化">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/CentOS6系统服务启动优化-1/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-18T06:26:29.342Z">
+<meta property="og:updated_time" content="2019-03-01T04:16:09.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文章分类">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="CentOS6系统服务启动优化">
+<meta name="twitter:description" content="在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -164,20 +165,589 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article class="article article-type-post show">
-  <header class="article-header" style="border-bottom: 1px solid #ccc">
-  <h1 class="article-title" itemprop="name">
-    文章分类
-  </h1>
-  </header>
+            <article id="post-CentOS6系统服务启动优化-1" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS6系统服务启动优化
+    </h1>
+  
+
+        
+        <a href="/2019/03/01/CentOS6系统服务启动优化-1/" class="archive-article-date">
+  	<time datetime="2019-03-01T02:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-01</time>
+</a>
+        
+      </header>
+    
+   <!-- 目录内容 -->
+    
+   <!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。<br><a id="more"></a></p>
+<h6 id="系统服务"><a href="#系统服务" class="headerlink" title="系统服务"></a>系统服务</h6><table>
+<thead>
+<tr>
+<th style="text-align:center">服务名称</th>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">默认</th>
+<th style="text-align:center">建议</th>
+<th style="text-align:center">备注说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">NetworkManager</td>
+<td style="text-align:center">用于自动连接网络，常用在Laptop上</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">abrt-ccpp</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">abrt-oops</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">abrtd</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">acpid</td>
+<td style="text-align:center">电源的开关等检测管理，常用在Laptop上</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">atd</td>
+<td style="text-align:center">在指定时间执行命令</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">如果用crond，则可关闭它</td>
+</tr>
+<tr>
+<td style="text-align:center">auditd</td>
+<td style="text-align:center">审核守护进程</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">如果用selinux，需要开启它</td>
+</tr>
+<tr>
+<td style="text-align:center">autofs</td>
+<td style="text-align:center">文件系统自动加载和卸载</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">只在需要时开启它，可以关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">avahi-daemon</td>
+<td style="text-align:center">本地网络服务查找</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">bluetooth</td>
+<td style="text-align:center">蓝牙无线通讯</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">certmonger</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">cpuspeed</td>
+<td style="text-align:center">调节cpu速度用来省电，常用在Laptop上</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">crond</td>
+<td style="text-align:center">计划任务管理</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">常用，开启</td>
+</tr>
+<tr>
+<td style="text-align:center">cups</td>
+<td style="text-align:center">通用unix打印服务</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">对服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">dnsmasq</td>
+<td style="text-align:center">dns cache</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">DNS缓存服务，无用</td>
+</tr>
+<tr>
+<td style="text-align:center">firstboot</td>
+<td style="text-align:center">系统安装后初始设定</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">haldaemon</td>
+<td style="text-align:center">硬件信息收集服务</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">ip6tables</td>
+<td style="text-align:center">ipv6防火墙</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">用到ipv6网络的就用，一般关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">iptables</td>
+<td style="text-align:center">ipv4防火墙</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">ipv4防火墙服务</td>
+</tr>
+<tr>
+<td style="text-align:center">irqbalance</td>
+<td style="text-align:center">cpu负载均衡</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">多核cup需要</td>
+</tr>
+<tr>
+<td style="text-align:center">kdump</td>
+<td style="text-align:center">硬件变动检测</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">服务器无用</td>
+</tr>
+<tr>
+<td style="text-align:center">lvm2-monitor</td>
+<td style="text-align:center">lvm监视</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">如果使用LVM逻辑卷管理就开启</td>
+</tr>
+<tr>
+<td style="text-align:center">matahari-broker</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">此服务不清楚，我关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">matahari-host</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">此服务不清楚，我关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">matahari-network</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">此服务不清楚，我关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">matahari-service</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">此服务不清楚，我关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">matahari-sysconfig</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">此服务不清楚，我关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">mdmonitor</td>
+<td style="text-align:center">软raid监视</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">messagebus</td>
+<td style="text-align:center">负责在各个系统进程之间传递消息</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">如停用，haldaemon启动会失败</td>
+</tr>
+<tr>
+<td style="text-align:center">netconsole</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">netfs</td>
+<td style="text-align:center">系统启动时自动挂载网络文件系统</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">如果使用nfs服务，就开启</td>
+</tr>
+<tr>
+<td style="text-align:center">network</td>
+<td style="text-align:center">系统启动时激活所有网络接口</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">网络基础服务，必需！</td>
+</tr>
+<tr>
+<td style="text-align:center">nfs</td>
+<td style="text-align:center">网络文件系统</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">nfs文件服务，用到就开启</td>
+</tr>
+<tr>
+<td style="text-align:center">nfslock</td>
+<td style="text-align:center">nfs相关</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">nfs相关服务，用到就开启</td>
+</tr>
+<tr>
+<td style="text-align:center">ntpd</td>
+<td style="text-align:center">自动对时工具</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">网络对时服务，用到就开启</td>
+</tr>
+<tr>
+<td style="text-align:center">ntpdate</td>
+<td style="text-align:center">自动对时工具</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">oddjobd</td>
+<td style="text-align:center">与D-BUS相关</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">portreserve</td>
+<td style="text-align:center">RPC 服务相关</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">可以关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">postfix</td>
+<td style="text-align:center">替代sendmail的邮件服务器</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">自定</td>
+<td style="text-align:center">如果无邮件服务，可关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">psacct</td>
+<td style="text-align:center">负荷检测</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">可以关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">qpidd</td>
+<td style="text-align:center">消息通信</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">quota_nld</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">可以关闭</td>
+</tr>
+<tr>
+<td style="text-align:center">rdisc</td>
+<td style="text-align:center">自动检测路由器</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">restorecond</td>
+<td style="text-align:center">selinux相关</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">如果开启了selinux，就需开启</td>
+</tr>
+<tr>
+<td style="text-align:center">rpcbind</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关键的基础服务，nfs服务和桌面环境都依赖此服务！相当于CentOS 5.x里面的portmap服务</td>
+</tr>
+<tr>
+<td style="text-align:center">rpcgssd</td>
+<td style="text-align:center">NFS相关</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">NFS相关服务，可选</td>
+</tr>
+<tr>
+<td style="text-align:center">rpcidmapd</td>
+<td style="text-align:center">RPC name to UID/GID mapper</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">NFS相关服务，可选</td>
+</tr>
+<tr>
+<td style="text-align:center">rpcsvcgssd</td>
+<td style="text-align:center">NFS相关</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">NFS相关服务，可选</td>
+</tr>
+<tr>
+<td style="text-align:center">rsyslog</td>
+<td style="text-align:center">提供系统的登录档案记录</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">系统日志关键服务，必需</td>
+</tr>
+<tr>
+<td style="text-align:center">saslauthd</td>
+<td style="text-align:center">sasl认证服务相关</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">smartd</td>
+<td style="text-align:center">硬盘自动检测守护进程</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">spice-vdagentd</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">sshd</td>
+<td style="text-align:center">ssh服务端，可提供安全的shell登录</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">SH远程登录服务，必需</td>
+</tr>
+<tr>
+<td style="text-align:center">sssd</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">sysstat</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">一组系统监控工具的服务，常用</td>
+</tr>
+<tr>
+<td style="text-align:center">udev-post</td>
+<td style="text-align:center">设备管理系统</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center">开启</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">wdaemon</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">wpa_supplicant</td>
+<td style="text-align:center">无线认证相关</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">ypbind</td>
+<td style="text-align:center">network information service客户端</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center">关闭</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="系统服务管理工具"><a href="#系统服务管理工具" class="headerlink" title="系统服务管理工具"></a>系统服务管理工具</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 管理系统服务使用 chkconfig</span></span><br><span class="line">usage：chkconfig --list [name]</span><br><span class="line">       chkconfig --add &lt;name&gt;</span><br><span class="line">       chkconfig --del &lt;name&gt;</span><br><span class="line">       chkconfig [--level &lt;levels&gt;] &lt;name&gt; &lt;on|off|reset|resetpriorities&gt;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/01/CentOS6系统服务启动优化-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
 
   
-  <div class="category-all-page">
-    <h2>共计&nbsp;3&nbsp;个分类</h2>
-    <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/Linux系统与服务/">Linux系统与服务</a><span class="category-list-item-list-count">5</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/MySQL管理/">MySQL管理</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/Python模块应用/">Python模块应用</a><span class="category-list-item-list-count">2</span></li></ul>
-  </div>
+<nav id="article-nav">
   
-</article>
+  
+    <a href="/2019/02/27/CentOS7系统打开文件数等资源设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS7系统打开文件数等资源设置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
 
           </div>
         </div>
@@ -199,7 +769,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
