@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Small Book">
 <meta property="og:description" content="在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-01T04:16:09.503Z">
+<meta property="og:updated_time" content="2019-03-01T04:18:20.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS6系统服务启动优化">
 <meta name="twitter:description" content="在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。">
@@ -570,7 +570,7 @@
 <td style="text-align:center">ssh服务端，可提供安全的shell登录</td>
 <td style="text-align:center">开启</td>
 <td style="text-align:center">开启</td>
-<td style="text-align:center">SH远程登录服务，必需</td>
+<td style="text-align:center">SSH远程登录服务，必需</td>
 </tr>
 <tr>
 <td style="text-align:center">sssd</td>
@@ -617,7 +617,6 @@
 </tbody>
 </table>
 <h6 id="系统服务管理工具"><a href="#系统服务管理工具" class="headerlink" title="系统服务管理工具"></a>系统服务管理工具</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 管理系统服务使用 chkconfig</span></span><br><span class="line">usage：chkconfig --list [name]</span><br><span class="line">       chkconfig --add &lt;name&gt;</span><br><span class="line">       chkconfig --del &lt;name&gt;</span><br><span class="line">       chkconfig [--level &lt;levels&gt;] &lt;name&gt; &lt;on|off|reset|resetpriorities&gt;</span><br></pre></td></tr></table></figure>
-
       
 
       
