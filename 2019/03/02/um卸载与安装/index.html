@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Small Book</title>
+  <title>Yum卸载与安装 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Small Book">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="生活总是伴随着挖坑、填坑，与无数的折腾，今天就来折腾一回，卸载yum。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yum卸载与安装">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/um卸载与安装/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="生活总是伴随着挖坑、填坑，与无数的折腾，今天就来折腾一回，卸载yum。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-02T09:09:25.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Small Book">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="Yum卸载与安装">
+<meta name="twitter:description" content="生活总是伴随着挖坑、填坑，与无数的折腾，今天就来折腾一回，卸载yum。">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -163,36 +165,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-um卸载与安装" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Yum卸载与安装
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/um卸载与安装/" class="archive-article-date">
+
+        
+        <a href="/2019/03/02/um卸载与安装/" class="archive-article-date">
   	<time datetime="2019-03-02T07:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/um卸载与安装/">Yum卸载与安装</a>
-    </h1>
-  
+        
+      </header>
+    
+   <!-- 目录内容 -->
+    
+   <!-- 目录内容结束 -->
 
-        <div class="article-info info-on-right">
-          
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>生活总是伴随着挖坑、填坑，与无数的折腾，今天就来折腾一回，卸载yum。<br><a id="more"></a></p>
+<h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。</p>
+<h5 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h5><p>操作系统使用CentOS 6.9<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/redhat-release </span><br><span class="line">CentOS release 6.9 (Final)</span><br><span class="line">$ uname -r </span><br><span class="line">2.6.32-696.6.3.el6.x86_64</span><br></pre></td></tr></table></figure></p>
+<h5 id="卸载yum"><a href="#卸载yum" class="headerlink" title="卸载yum"></a>卸载yum</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rpm -qa yum</span><br><span class="line">yum-3.2.29-30.el6.centos.noarch</span><br><span class="line"><span class="comment"># 将yum所有的组件卸载掉，如果卸载不干净，后面安装会出现问题</span></span><br><span class="line">$ rpm -qa | grep yum | xargs rpm -e --nodeps</span><br></pre></td></tr></table></figure>
+<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>可以从 “<a href="http://mirror.centos.org/centos/6/os/x86_64/Packages/”" target="_blank" rel="noopener">http://mirror.centos.org/centos/6/os/x86_64/Packages/”</a> 下载以下安装组件，因为这里测试是使用的虚拟机，我就从安装盘里安装组件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. yum-3.2.29-30.el6.centos.noarch.rpm</span><br><span class="line">2. yum-metadata-parser-1.1.2-16.el6.x86_64.rpm</span><br><span class="line">3. yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<h5 id="安装yum"><a href="#安装yum" class="headerlink" title="安装yum"></a>安装yum</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 挂载安装盘</span></span><br><span class="line">$ mount /dev/cdrom /mnt</span><br><span class="line">$ <span class="built_in">cd</span> /mnt</span><br><span class="line">$ rpm -ivh yum-3.2.29-30.el6.centos.noarch.rpm yum-metadata-parser-1.1.2-16.el6.x86_64.rpm yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm</span><br><span class="line"><span class="comment"># 查看是否已经安装上</span></span><br><span class="line">$ rpm -qa yum</span><br><span class="line">yum-3.2.29-30.el6.centos.noarch</span><br></pre></td></tr></table></figure>
+<h5 id="其他问题处理"><a href="#其他问题处理" class="headerlink" title="其他问题处理"></a>其他问题处理</h5><h6 id="1-有时候升级了系统上的python，使用yum会提示-“No-module-named-yum”"><a href="#1-有时候升级了系统上的python，使用yum会提示-“No-module-named-yum”" class="headerlink" title="1.有时候升级了系统上的python，使用yum会提示 “No module named yum”"></a>1.有时候升级了系统上的python，使用yum会提示 “No module named yum”</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ yum --version</span><br><span class="line">There was a problem importing one of the Python modules</span><br><span class="line">required to run yum. The error leading to this problem was:</span><br><span class="line"></span><br><span class="line">   No module named yum</span><br><span class="line"></span><br><span class="line">Please install a package <span class="built_in">which</span> provides this module, or</span><br><span class="line">verify that the module is installed correctly.</span><br><span class="line"></span><br><span class="line">It<span class="string">'s possible that the above module doesn'</span>t match the</span><br><span class="line">current version of Python, <span class="built_in">which</span> is:</span><br><span class="line">2.7.9 (default, May 14 2016, 11:03:49) </span><br><span class="line">[GCC 4.4.7 20120313 (Red Hat 4.4.7-16)]</span><br><span class="line"></span><br><span class="line">If you cannot solve this problem yourself, please go to </span><br><span class="line">the yum faq at:</span><br><span class="line">  http://yum.baseurl.org/wiki/Faq</span><br></pre></td></tr></table></figure>
+<p><strong>原因：</strong>yum是基于python开发，使用rpm安装方式，在安装过程中，会将自定义的“yum”模块，拷贝到python “site-packages”目录下，在 CentOS 6.x 中，是“/usr/lib/python2.6/site-packages/”，可通过解压查看 yum rpm 安装包，能够看见这个模块的安装路径，然后可以进入这个目录能查看到“yum”模块。python 升级后，python 执行文件被指向了升级版本，而升级版本没有“yum”模块，因此出现以上错误，可能你试着使用“pip install yum”安装，然而，这是查找不到的，因为是“yum”自定义模块。<br><strong>解决方法：</strong>查找到 yum 命令，这命令是一个python脚本，将脚本第一行修改为使用 python2.6 运行脚本， “#!/usr/bin/python2.6”。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> yum</span><br><span class="line">/usr/bin/yum</span><br><span class="line">$ vim /usr/bin/yum </span><br><span class="line"><span class="comment">#!/usr/bin/python2.6</span></span><br><span class="line">import sys</span><br><span class="line">try:</span><br><span class="line">    import yum</span><br><span class="line">except ImportError:</span><br><span class="line">    <span class="built_in">print</span> &gt;&gt; sys.stderr, <span class="string">""</span><span class="string">"\</span></span><br><span class="line"><span class="string">There was a problem importing one of the Python modules</span></span><br><span class="line"><span class="string">required to run yum. The error leading to this problem was:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   %s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Please install a package which provides this module, or</span></span><br><span class="line"><span class="string">verify that the module is installed correctly.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">It's possible that the above module doesn't match the</span></span><br><span class="line"><span class="string">current version of Python, which is:</span></span><br><span class="line"><span class="string">%s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">If you cannot solve this problem yourself, please go to </span></span><br><span class="line"><span class="string">the yum faq at:</span></span><br><span class="line"><span class="string">  http://yum.baseurl.org/wiki/Faq</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">"</span><span class="string">""</span> % (sys.exc_value, sys.version)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line">sys.path.insert(0, <span class="string">'/usr/share/yum-cli'</span>)</span><br><span class="line">try:</span><br><span class="line">    import yummain</span><br><span class="line">    yummain.user_main(sys.argv[1:], exit_code=True)</span><br><span class="line">except KeyboardInterrupt, e:</span><br><span class="line">    <span class="built_in">print</span> &gt;&gt; sys.stderr, <span class="string">"\n\nExiting on user cancel."</span></span><br><span class="line">    sys.exit(1)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,7 +216,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -217,409 +229,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/02/um卸载与安装/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/01/CentOS6系统服务启动优化-1/" class="archive-article-date">
-  	<time datetime="2019-03-01T02:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/01/CentOS6系统服务启动优化-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS6系统服务启动优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/01/CentOS6系统服务启动优化-1/">CentOS6系统服务启动优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/27/CentOS7系统打开文件数等资源设置/" class="archive-article-date">
-  	<time datetime="2019-02-27T02:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/CentOS7系统打开文件数等资源设置/">CentOS7系统打开文件数等资源设置</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/25/SHELL变量截取/" class="archive-article-date">
-  	<time datetime="2019-02-25T07:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/25/SHELL变量截取/">SHELL变量截取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/25/Socket模块/" class="archive-article-date">
-  	<time datetime="2019-02-25T03:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/25/Socket模块/">Socket模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/23/cryptsetup分区加密/" class="archive-article-date">
-  	<time datetime="2019-02-23T09:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/23/cryptsetup分区加密/">Cryptsetup分区加密</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/22/Linux系统优化/" class="archive-article-date">
-  	<time datetime="2019-02-22T06:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/Linux系统优化/">Linux系统优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/21/MySQL权限导出/" class="archive-article-date">
-  	<time datetime="2019-02-21T09:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/21/MySQL权限导出/">MySQL权限导出</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL管理/" class="article-tag-list-link color3">MySQL管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/21/Pysvn模块安装/" class="archive-article-date">
-  	<time datetime="2019-02-21T03:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/21/Pysvn模块安装/">Pysvn模块安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -642,8 +349,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
