@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>理解 %IOWAIT | Small Book</title>
+  <title>Category: 平凡的生活 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：">
-<meta name="keywords" content="Linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="理解 %IOWAIT">
-<meta property="og:url" content="http://yoursite.com/2019/03/04/理解-IOWAIT-WIO/index.html">
+  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Small Book">
+<meta property="og:url" content="http://yoursite.com/categories/平凡的生活/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：">
+<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T03:03:23.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解 %IOWAIT">
-<meta name="twitter:description" content="%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：">
+<meta name="twitter:title" content="Small Book">
+<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -165,174 +163,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-理解-IOWAIT-WIO" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      理解 %IOWAIT
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/08/有史以来最令人惊叹的十大游戏宣传片/" class="archive-article-date">
+  	<time datetime="2019-03-08T04:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/08/有史以来最令人惊叹的十大游戏宣传片/">有史以来最令人惊叹的十大游戏宣传片</a>
     </h1>
   
 
-        
-        <a href="/2019/03/04/理解-IOWAIT-WIO/" class="archive-article-date">
-  	<time datetime="2019-03-04T02:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：<br><a id="more"></a><br>下面是man page中的部分解释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ man sar</span><br><span class="line">...</span><br><span class="line">%iowait</span><br><span class="line">    Percentage of time that the CPU or CPUs were idle during which the system had an outstanding disk I/O request.</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>%iowait 表示在一个采样周期内有百分之几的时间属于以下情况：CPU空闲、并且有仍未完成的I/O请求。<br>对 %iowait 常见的误解有两个：<br>　　一是误以为 %iowait 表示CPU不能工作的时间。<br>　　二是误以为 %iowait 表示I/O有瓶颈。</p>
-<p>首先 %iowait 升高并不能证明等待I/O的进程数量增多了，也不能证明等待I/O的总时间增加了。<br>例如，在CPU繁忙期间发生的I/O，无论IO是多还是少，%iowait都不会变；当CPU繁忙程度下降时，有一部分IO落入CPU空闲时间段内，导致%iowait升高。再比如，IO的并发度低，%iowait就高；IO的并发度高，%iowait可能就比较低。可见%iowait是一个非常模糊的指标，如果看到 %iowait 升高，还需检查I/O量有没有明显增加，avserv/avwait/avque等指标有没有明显增大，应用有没有感觉变慢，如果都没有，就没什么好担心的。</p>
-<h6 id="查看-iowait"><a href="#查看-iowait" class="headerlink" title="查看 iowait"></a>查看 iowait</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sar -u 2 5</span><br><span class="line">Linux 2.6.32-696.6.3.el6.x86_64 (serverA) 	2019年03月04日 	_x86_64_	(4 CPU)</span><br><span class="line"></span><br><span class="line">10时46分02秒     CPU     %user     %nice   %system   %iowait    %steal     %idle</span><br><span class="line">10时46分04秒     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br><span class="line">10时46分06秒     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br><span class="line">10时46分08秒     all      0.00      0.00      0.38      0.00      0.00     99.62</span><br><span class="line">10时46分10秒     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br><span class="line">10时46分12秒     all      0.00      0.00      0.62      0.00      0.00     99.38</span><br><span class="line">平均时间:     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br><span class="line">top - 10:54:25 up 30 min,  4 users,  load average: 0.00, 0.00, 0.00</span><br><span class="line">Tasks: 149 total,   1 running, 148 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s):  0.1%us,  0.1%sy,  0.0%ni, 99.8%id,  0.0%wa,  0.0%hi,  0.1%si,  0.0%st</span><br><span class="line">Mem:   2046292k total,   550252k used,  1496040k free,    78544k buffers</span><br><span class="line">Swap:  2031612k total,        0k used,  2031612k free,   251912k cached</span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                   </span><br><span class="line"> 1703 root      20   0 1234m  91m  15m S  0.0  4.6   0:09.07 hexo                  </span><br><span class="line"> 1704 root      20   0 1234m  91m  15m S  0.0  4.6   0:00.45 node                  </span><br><span class="line"> 1705 root      20   0 1234m  91m  15m S  0.0  4.6   0:00.34 node              </span><br><span class="line"> 1706 root      20   0 1234m  91m  15m S  0.0  4.6   0:00.35 node</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
+        			<a href="/categories/平凡的生活/" class="article-tag-list-link color1">平凡的生活</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/04/理解-IOWAIT-WIO/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/05/lsof使用详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          lsof使用详解
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/02/um卸载与安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Yum卸载与安装</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -355,10 +250,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
