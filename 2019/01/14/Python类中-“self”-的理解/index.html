@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Small Book">
 <meta property="og:description" content="在介绍Python的self用法之前，先来介绍下Python中的类和实例，我们知道，面向对象最重要的概念就是类（class）和实例（instance），类是抽象的模板，比如汽车这个抽象的事物，可以用一个 Car 类来表示。而实例是根据类创建出来的一个个具体的“对象”，每一个对象都从类中继承有相同的方法，但各自的数据可能不同。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T04:59:34.862Z">
+<meta property="og:updated_time" content="2019-03-14T06:27:43.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python类中 “self” 的理解">
 <meta name="twitter:description" content="在介绍Python的self用法之前，先来介绍下Python中的类和实例，我们知道，面向对象最重要的概念就是类（class）和实例（instance），类是抽象的模板，比如汽车这个抽象的事物，可以用一个 Car 类来表示。而实例是根据类创建出来的一个个具体的“对象”，每一个对象都从类中继承有相同的方法，但各自的数据可能不同。">
@@ -184,6 +184,30 @@
       </header>
     
    <!-- 目录内容 -->
+    
+        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+        </p>
+        <div id="toc-article" class="toc-article">
+            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#类与实例"><span class="toc-number">1.</span> <span class="toc-text">类与实例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#self-的用法"><span class="toc-number">2.</span> <span class="toc-text">self 的用法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#总结："><span class="toc-number">3.</span> <span class="toc-text">总结：</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+            };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+            };
+        </script>
     
    <!-- 目录内容结束 -->
 
