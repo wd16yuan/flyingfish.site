@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>理解 %IOWAIT | Small Book</title>
+  <title>Super函数的使用 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="简介super() 函数是用于调用父类(超类)的一个方法。super 是用来解决多重继承问题的，直接用类名调用父类方法在使用单继承的时候没问题，但是如果使用多继承，会涉及到查找顺序（MRO）、重复调用（钻石继承）等种种问题。MRO 就是类的方法解析顺序表, 其实也就是继承父类方法时的顺序表。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解 %IOWAIT">
-<meta property="og:url" content="http://yoursite.com/2019/03/04/理解-IOWAIT-WIO/index.html">
+<meta property="og:title" content="Super函数的使用">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/Super函数的使用/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：">
+<meta property="og:description" content="简介super() 函数是用于调用父类(超类)的一个方法。super 是用来解决多重继承问题的，直接用类名调用父类方法在使用单继承的时候没问题，但是如果使用多继承，会涉及到查找顺序（MRO）、重复调用（钻石继承）等种种问题。MRO 就是类的方法解析顺序表, 其实也就是继承父类方法时的顺序表。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T03:03:23.105Z">
+<meta property="og:updated_time" content="2019-03-15T08:37:58.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解 %IOWAIT">
-<meta name="twitter:description" content="%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：">
+<meta name="twitter:title" content="Super函数的使用">
+<meta name="twitter:description" content="简介super() 函数是用于调用父类(超类)的一个方法。super 是用来解决多重继承问题的，直接用类名调用父类方法在使用单继承的时候没问题，但是如果使用多继承，会涉及到查找顺序（MRO）、重复调用（钻石继承）等种种问题。MRO 就是类的方法解析顺序表, 其实也就是继承父类方法时的顺序表。">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -165,35 +165,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-理解-IOWAIT-WIO" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Super函数的使用" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      理解 %IOWAIT
+      Super函数的使用
     </h1>
   
 
         
-        <a href="/2019/03/04/理解-IOWAIT-WIO/" class="archive-article-date">
-  	<time datetime="2019-03-04T02:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
+        <a href="/2019/03/15/Super函数的使用/" class="archive-article-date">
+  	<time datetime="2019-03-15T07:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
 </a>
         
       </header>
     
    <!-- 目录内容 -->
     
+        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+        </p>
+        <div id="toc-article" class="toc-article">
+            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#语法"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#简单的使用"><span class="toc-number">3.</span> <span class="toc-text">简单的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#深入的使用"><span class="toc-number">4.</span> <span class="toc-text">深入的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MRO-列表"><span class="toc-number">5.</span> <span class="toc-text">MRO 列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#super-原理"><span class="toc-number">6.</span> <span class="toc-text">super 原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+            };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+            };
+        </script>
+    
    <!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>%iowait 是 “sar -u” 等工具检查CPU使用率时显示的一个指标，在Linux上显示为 %iowait，这个指标常常被误读，很多人把它当作I/O问题的征兆，事实上这个指标所含的信息量非常少，不能单独用来判断系统有没有I/O问题，在此我们详细探讨一下它真正的含义，先从man page上的解释开始：<br><a id="more"></a><br>下面是man page中的部分解释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ man sar</span><br><span class="line">...</span><br><span class="line">%iowait</span><br><span class="line">    Percentage of time that the CPU or CPUs were idle during which the system had an outstanding disk I/O request.</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>%iowait 表示在一个采样周期内有百分之几的时间属于以下情况：CPU空闲、并且有仍未完成的I/O请求。<br>对 %iowait 常见的误解有两个：<br>　　一是误以为 %iowait 表示CPU不能工作的时间。<br>　　二是误以为 %iowait 表示I/O有瓶颈。</p>
-<p>首先 %iowait 升高并不能证明等待I/O的进程数量增多了，也不能证明等待I/O的总时间增加了。<br>例如，在CPU繁忙期间发生的I/O，无论IO是多还是少，%iowait都不会变；当CPU繁忙程度下降时，有一部分IO落入CPU空闲时间段内，导致%iowait升高。再比如，IO的并发度低，%iowait就高；IO的并发度高，%iowait可能就比较低。可见%iowait是一个非常模糊的指标，如果看到 %iowait 升高，还需检查I/O量有没有明显增加，avserv/avwait/avque等指标有没有明显增大，应用有没有感觉变慢，如果都没有，就没什么好担心的。</p>
-<h6 id="查看-iowait"><a href="#查看-iowait" class="headerlink" title="查看 iowait"></a>查看 iowait</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sar -u 2 5</span><br><span class="line">Linux 2.6.32-696.6.3.el6.x86_64 (serverA) 	2019年03月04日 	_x86_64_	(4 CPU)</span><br><span class="line"></span><br><span class="line">10时46分02秒     CPU     %user     %nice   %system   %iowait    %steal     %idle</span><br><span class="line">10时46分04秒     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br><span class="line">10时46分06秒     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br><span class="line">10时46分08秒     all      0.00      0.00      0.38      0.00      0.00     99.62</span><br><span class="line">10时46分10秒     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br><span class="line">10时46分12秒     all      0.00      0.00      0.62      0.00      0.00     99.38</span><br><span class="line">平均时间:     all      0.00      0.00      0.50      0.00      0.00     99.50</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br><span class="line">top - 10:54:25 up 30 min,  4 users,  load average: 0.00, 0.00, 0.00</span><br><span class="line">Tasks: 149 total,   1 running, 148 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s):  0.1%us,  0.1%sy,  0.0%ni, 99.8%id,  0.0%wa,  0.0%hi,  0.1%si,  0.0%st</span><br><span class="line">Mem:   2046292k total,   550252k used,  1496040k free,    78544k buffers</span><br><span class="line">Swap:  2031612k total,        0k used,  2031612k free,   251912k cached</span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                   </span><br><span class="line"> 1703 root      20   0 1234m  91m  15m S  0.0  4.6   0:09.07 hexo                  </span><br><span class="line"> 1704 root      20   0 1234m  91m  15m S  0.0  4.6   0:00.45 node                  </span><br><span class="line"> 1705 root      20   0 1234m  91m  15m S  0.0  4.6   0:00.34 node              </span><br><span class="line"> 1706 root      20   0 1234m  91m  15m S  0.0  4.6   0:00.35 node</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+        <h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>super() 函数是用于调用父类(超类)的一个方法。<br>super 是用来解决多重继承问题的，直接用类名调用父类方法在使用单继承的时候没问题，但是如果使用多继承，会涉及到查找顺序（MRO）、重复调用（钻石继承）等种种问题。<br>MRO 就是类的方法解析顺序表, 其实也就是继承父类方法时的顺序表。<br><a id="more"></a></p>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><p>以下是 super() 方法的语法:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(type[, object-<span class="keyword">or</span>-type])</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>type  –  类</li>
+<li>object-or-type – 实例，一般是 self</li>
+</ul>
+<h5 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h5><p>在类的继承中，如果重定义某个方法，该方法会覆盖父类的同名方法，但有时，我们希望能同时实现父类的功能，这时，我们就需要调用父类的方法了，可通过使用 super 来实现，比如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">greet</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Hello, I am %s.'</span> % self.name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">greet</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Dog, self).greet()   <span class="comment"># Python3 可使用 super().greet()</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'WangWang...'</span></span><br></pre></td></tr></table></figure></p>
+<p>在上面，Animal 是父类，Dog 是子类，我们在 Dog 类重定义了 greet 方法，为了能同时实现父类的功能，我们又调用了父类的方法，看下面的使用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dog = Dog(<span class="string">'dog'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dog.greet()</span><br><span class="line">Hello, I am dog.</span><br><span class="line">WangWang...</span><br></pre></td></tr></table></figure></p>
+<p>super 的一个最常见用法可以说是在子类中调用父类的初始化方法了，比如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, a, b)</span>:</span></span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, a, b, c)</span>:</span></span><br><span class="line">        super(A, self).__init__(a, b)  <span class="comment"># Python3 可使用 super().__init__(a, b)</span></span><br><span class="line">        self.c = c</span><br></pre></td></tr></table></figure></p>
+<h5 id="深入的使用"><a href="#深入的使用" class="headerlink" title="深入的使用"></a>深入的使用</h5><p>看了上面的使用，你可能会觉得 super 的使用很简单，无非就是获取了父类，并调用父类的方法。其实，在上面的情况下，super 获得的类刚好是父类，但在其他情况就不一定了，super 其实和父类没有实质性的关联。</p>
+<p>让我们看一个稍微复杂的例子，涉及到多重继承，代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"enter Base"</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"leave Base"</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"enter A"</span></span><br><span class="line">        super(A, self).__init__()</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"leave A"</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"enter B"</span></span><br><span class="line">        super(B, self).__init__()</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"leave B"</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A, B)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"enter C"</span></span><br><span class="line">        super(C, self).__init__()</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"leave C"</span></span><br></pre></td></tr></table></figure></p>
+<p>其中，Base 是父类，A, B 继承自 Base, C 继承自 A, B，它们的继承关系如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   Base</span><br><span class="line">  /    \</span><br><span class="line"> /      \</span><br><span class="line">A        B</span><br><span class="line"> \      /</span><br><span class="line">   \  /</span><br><span class="line">     C</span><br></pre></td></tr></table></figure></p>
+<p>现在，让我们看一下使用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = C()</span><br><span class="line">enter C</span><br><span class="line">enter A</span><br><span class="line">enter B</span><br><span class="line">enter Base</span><br><span class="line">leave Base</span><br><span class="line">leave B</span><br><span class="line">leave A</span><br><span class="line">leave C</span><br></pre></td></tr></table></figure></p>
+<p>如果你认为 super 代表『调用父类的方法』，那你很可能会疑惑为什么 enter A 的下一句不是 enter Base 而是 enter B。原因是，super 和父类没有实质性的关联，现在让我们搞清 super 是怎么运作的。</p>
+<h5 id="MRO-列表"><a href="#MRO-列表" class="headerlink" title="MRO 列表"></a>MRO 列表</h5><p>事实上，对于你定义的每一个类，Python 会计算出一个方法解析顺序（Method Resolution Order, MRO）列表，它代表了类继承的顺序，我们可以使用下面的方式获得某个类的 MRO 列表：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>C.mro()   <span class="comment"># or C.__mro__ or C().__class__.mro()</span></span><br><span class="line">[__main__.C, __main__.A, __main__.B, __main__.Base, object]</span><br></pre></td></tr></table></figure></p>
+<p>那这个 MRO 列表的顺序是怎么定的呢，它是通过一个 C3 线性化算法来实现的，这里我们就不去深究这个算法了，感兴趣的读者可以自己去了解一下，总的来说，一个类的 MRO 列表就是合并所有父类的 MRO 列表，并遵循以下三条原则：</p>
+<ul>
+<li>子类永远在父类前面</li>
+<li>如果有多个父类，会根据它们在列表中的顺序被检查</li>
+<li>如果对下一个类存在两个合法的选择，选择第一个父类</li>
+</ul>
+<h5 id="super-原理"><a href="#super-原理" class="headerlink" title="super 原理"></a>super 原理</h5><p>super 的工作原理如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">super</span><span class="params">(cls, inst)</span>:</span></span><br><span class="line">    mro = inst.__class__.mro()</span><br><span class="line">    <span class="keyword">return</span> mro[mro.index(cls) + <span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
+<p>其中，cls 代表类，inst 代表实例，上面的代码做了两件事：</p>
+<ul>
+<li>获取 inst 的 MRO 列表</li>
+<li>查找 cls 在当前 MRO 列表中的 index, 并返回它的下一个类，即 mro[index + 1]<br>当你使用 super(cls, inst) 时，Python 会在 inst 的 MRO 列表上搜索 cls 的下一个类。</li>
+</ul>
+<p>现在，让我们回到前面的例子。</p>
+<p>首先看类 C 的 __init__ 方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(C, self).__init__()</span><br></pre></td></tr></table></figure></p>
+<p>这里的 self 是当前 C 的实例，self.__class__.mro() 结果是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[__main__.C, __main__.A, __main__.B, __main__.Base, object]</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，C 的下一个类是 A，于是，跳到了 A 的 __init__，这时会打印出 enter A，并执行下面一行代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(A, self).__init__()</span><br></pre></td></tr></table></figure></p>
+<p>注意，这里的 self 也是当前 C 的实例，MRO 列表跟上面是一样的，搜索 A 在 MRO 中的下一个类，发现是 B，于是，跳到了 B 的 __init__，这时会打印出 enter B，而不是 enter Base。</p>
+<p>整个过程还是比较清晰的，关键是要理解 super 的工作方式，而不是想当然地认为 super 调用了父类的方法。</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>事实上，super 和父类没有实质性的关联。</li>
+<li>super(cls, inst) 获得的是 cls 在 inst 的 MRO 列表中的下一个类。</li>
+</ul>
 
       
 
@@ -207,7 +263,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -219,7 +275,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
+        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
         		</li>
       		
 		</ul>
@@ -274,7 +330,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/04/理解-IOWAIT-WIO/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/15/Super函数的使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +344,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/05/lsof使用详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          lsof使用详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/02/um卸载与安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Yum卸载与安装</div>
+    <a href="/2019/01/14/Python类中-“self”-的理解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python类中 “self” 的理解</div>
       <i class="icon-circle-right"></i>
     </a>
   
