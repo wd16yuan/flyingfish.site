@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Small Book</title>
+  <title>Python 属性查找与赋值 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Small Book">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="在Python中，属性查找（attribute lookup）是比较复杂的，特别是涉及到描述符descriptor的时候。首先，我们知道：  python中一切都是对象，“everything is object”，包括类，类的实例，数字，模块 任何object都是类（class or type）的实例（instance） 如果一个descriptor只实现了__get__方法，我们称之为non-">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 属性查找与赋值">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/Python-对象属性的访问/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="在Python中，属性查找（attribute lookup）是比较复杂的，特别是涉及到描述符descriptor的时候。首先，我们知道：  python中一切都是对象，“everything is object”，包括类，类的实例，数字，模块 任何object都是类（class or type）的实例（instance） 如果一个descriptor只实现了__get__方法，我们称之为non-">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-19T09:30:43.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Small Book">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="Python 属性查找与赋值">
+<meta name="twitter:description" content="在Python中，属性查找（attribute lookup）是比较复杂的，特别是涉及到描述符descriptor的时候。首先，我们知道：  python中一切都是对象，“everything is object”，包括类，类的实例，数字，模块 任何object都是类（class or type）的实例（instance） 如果一个descriptor只实现了__get__方法，我们称之为non-">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -163,134 +165,105 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python-对象属性的访问" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python 属性查找与赋值
+    </h1>
+  
+
+        
+        <a href="/2019/03/19/Python-对象属性的访问/" class="archive-article-date">
+  	<time datetime="2019-03-19T06:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
     
+   <!-- 目录内容 -->
+    
+        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+        </p>
+        <div id="toc-article" class="toc-article">
+            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#实例属性查找"><span class="toc-number">1.</span> <span class="toc-text">实例属性查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类属性查找"><span class="toc-number">2.</span> <span class="toc-text">类属性查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实例属性赋值"><span class="toc-number">3.</span> <span class="toc-text">实例属性赋值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类属性赋值"><span class="toc-number">4.</span> <span class="toc-text">类属性赋值</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+            };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+            };
+        </script>
+    
+   <!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Python中，属性查找（attribute lookup）是比较复杂的，特别是涉及到描述符descriptor的时候。<br>首先，我们知道：</p>
+<ul>
+<li>python中一切都是对象，“everything is object”，包括类，类的实例，数字，模块</li>
+<li>任何object都是类（class or type）的实例（instance）</li>
+<li>如果一个descriptor只实现了__get__方法，我们称之为non-data descriptor， 如果同时实现了__get__ 、__set__我们称之为data descriptor<a id="more"></a>
+<h5 id="实例属性查找"><a href="#实例属性查找" class="headerlink" title="实例属性查找"></a>实例属性查找</h5>按照python doc，如果obj是某个类的实例，那么obj.name（以及等价的getattr(obj,’name’)）首先调用__getattribute__。如果类定义了__getattr__方法，那么在__getattribute__抛出 AttributeError 的时候就会调用到__getattr__，而对于描述符(__get__）的调用，则是发生在__getattribute__内部的。官网文档是这么描述的：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The implementation works through a precedence chain that gives data descriptors priority over instance variables, instance variables priority over non-data descriptors, <span class="keyword">and</span> assigns lowest priority to __getattr__() <span class="keyword">if</span> provided.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>obj = Clz()，那么 obj.attr 顺序如下：</p>
+<ul>
+<li>如果“attr”是出现在Clz或其基类的__dict__中，且attr是data descriptor，那么调用其__get__方法，否则</li>
+<li>如果“attr”出现在obj的__dict__中，那么直接返回 obj.__dict__[‘attr’]，否则</li>
+<li>如果“attr”出现在Clz或其基类的__dict__中<ul>
+<li>如果attr是non-data descriptor，那么调用其__get__方法，否则</li>
+<li>返回__dict__[‘attr’]</li>
+</ul>
+</li>
+<li>如果Clz有__getattr__方法，调用__getattr__方法，否则</li>
+<li>抛出AttributeError <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding=utf-8-*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataDescriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, init_value)</span>:</span></span><br><span class="line">        self.value = init_value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, typ)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'DataDescriptor __get__'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, instance, value)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'DataDescriptor __set__'</span>)</span><br><span class="line">        self.value = value</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NonDataDescriptor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, init_value)</span>:</span></span><br><span class="line">        self.value = init_value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, typ)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>(<span class="string">'NonDataDescriptor __get__'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span><span class="params">(object)</span>:</span></span><br><span class="line">    dd_base = DataDescriptor(<span class="number">0</span>)</span><br><span class="line">    ndd_base = NonDataDescriptor(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derive</span><span class="params">(Base)</span>:</span></span><br><span class="line">    dd_derive = DataDescriptor(<span class="number">0</span>)</span><br><span class="line">    ndd_derive = NonDataDescriptor(<span class="number">0</span>)</span><br><span class="line">    same_name_attr = <span class="string">'attr in class'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.not_des_attr = <span class="string">'I am not descriptor attr'</span></span><br><span class="line">        self.same_name_attr = <span class="string">'attr in object'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'__getattr__ with key %s'</span> % key</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">change_attr</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__dict__[<span class="string">'dd_base'</span>] = <span class="string">'dd_base now in object dict '</span></span><br><span class="line">        self.__dict__[<span class="string">'ndd_derive'</span>] = <span class="string">'ndd_derive now in object dict '</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    b = Base()</span><br><span class="line">    d = Derive()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Derive object dict'</span>, d.__dict__</span><br><span class="line">    <span class="keyword">assert</span> d.dd_base == <span class="string">"DataDescriptor __get__"</span></span><br><span class="line">    <span class="keyword">assert</span> d.ndd_derive == <span class="string">'NonDataDescriptor __get__'</span></span><br><span class="line">    <span class="keyword">assert</span> d.not_des_attr == <span class="string">'I am not descriptor attr'</span></span><br><span class="line">    <span class="keyword">assert</span> d.no_exists_key == <span class="string">'__getattr__ with key no_exists_key'</span></span><br><span class="line">    <span class="keyword">assert</span> d.same_name_attr == <span class="string">'attr in object'</span></span><br><span class="line">    d.change_attr()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Derive object dict'</span>, d.__dict__</span><br><span class="line">    <span class="keyword">assert</span> d.dd_base != <span class="string">'dd_base now in object dict '</span></span><br><span class="line">    <span class="keyword">assert</span> d.ndd_derive == <span class="string">'ndd_derive now in object dict '</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        b.no_exists_key</span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">        <span class="keyword">assert</span> isinstance(e, AttributeError)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意第50行，change_attr给实例的__dict__里面增加了两个属性。通过上下两条print的输出如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Derive object dict &#123;<span class="string">'same_name_attr'</span>: <span class="string">'attr in object'</span>, <span class="string">'not_des_attr'</span>: <span class="string">'I am not descriptor attr'</span>&#125;</span><br><span class="line">Derive object dict &#123;<span class="string">'same_name_attr'</span>: <span class="string">'attr in object'</span>, <span class="string">'ndd_derive'</span>: <span class="string">'ndd_derive now in object dict '</span>, <span class="string">'not_des_attr'</span>: <span class="string">'I am not descriptor attr'</span>, <span class="string">'dd_base'</span>: <span class="string">'dd_base now in object dict '</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>调用change_attr方法之后，dd_base既出现在类的__dict__（作为data descriptor）, 也出现在实例的__dict__，因为attribute lookup的循序，所以优先返回的还是Clz.__dict__[‘dd_base’]。而ndd_derive虽然出现在类的__dict__，但是因为是nondata descriptor，所以优先返回obj.__dict__[‘ndd_derive’]。</p>
+<h5 id="类属性查找"><a href="#类属性查找" class="headerlink" title="类属性查找"></a>类属性查找</h5><p>前面提到过，类也是对象，类是元类（metaclass）的实例，但与实例查找不同，类不会去调用“__getattribute__”方法。此外，Clz可能有基类，那么会在Clz及其基类的__dict__中查找属性，注意这里的查找并不是直接返回Clz.__dict__[‘attr’]。具体来说，得分为以下两种情况：</p>
+<ol>
+<li>如果Clz.__dict__[‘attr’]是一个descriptor（不管是data descriptor还是non-data descriptor），都调用其__get__方法</li>
+<li>否则返回Clz.__dict__[‘attr’]<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Widget</span><span class="params">(object)</span>:</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(self)</span>:</span></span><br><span class="line">          <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w = Widget()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Widget.__dict__</span><br><span class="line">&lt;dictproxy &#123;<span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'Widget'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>,<span class="string">'__module__'</span>: <span class="string">'__main__'</span>,<span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'Widget'</span> objects&gt;,<span class="string">'func'</span>: &lt;function __main__.func&gt;&#125;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w.__dict__</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Widget.__dict__[<span class="string">'func'</span>]</span><br><span class="line">&lt;function __main__.func&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Widget.func</span><br><span class="line">&lt;unbound method Widget.func&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Widget是一个定义了一个func函数的类，func是类的方法，这个也可以通过Widget.__dict__看到。Widget.__dict__[‘func’]返回的是一个function，但Widget.func是一个unbound method，即Widget.func并不等同于Widget.__dict__[‘func’]，按照前面的类属性的访问顺序，我们可以怀疑，func是一个descriptor，这样才不会走到上面第2这种情况。验证如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dir(Widget.__dict__[<span class="string">'func'</span>])[<span class="string">'__call__'</span>,<span class="string">'__class__'</span>,<span class="string">'__closure__'</span>,<span class="string">'__code__'</span>,<span class="string">'__defaults__'</span>,<span class="string">'__delattr__'</span>,<span class="string">'__dict__'</span>,<span class="string">'__doc__'</span>,<span class="string">'__format__'</span>,<span class="string">'__get__'</span>,<span class="string">'__getattribute__'</span>,<span class="string">'__globals__'</span>,<span class="string">'__hash__'</span>,<span class="string">'__init__'</span>,<span class="string">'__module__'</span>,<span class="string">'__name__'</span>,<span class="string">'__new__'</span>,<span class="string">'__reduce__'</span>,<span class="string">'__reduce_ex__'</span>,<span class="string">'__repr__'</span>,<span class="string">'__setattr__'</span>,<span class="string">'__sizeof__'</span>,<span class="string">'__str__'</span>,<span class="string">'__subclasshook__'</span>,<span class="string">'func_closure'</span>,<span class="string">'func_code'</span>,<span class="string">'func_defaults'</span>,<span class="string">'func_dict'</span>,<span class="string">'func_doc'</span>,<span class="string">'func_globals'</span>,<span class="string">'func_name'</span>]</span><br></pre></td></tr></table></figure></p>
+<h5 id="实例属性赋值"><a href="#实例属性赋值" class="headerlink" title="实例属性赋值"></a>实例属性赋值</h5><p>Python的属性赋值（attribute assignment）也会受到descriptor（data descriptor）的影响，同时也会受到__setattr__函数的影响。当然Python中还有一个setattr，setattr(x, ‘foobar’, 123)等价于x.foobar = 123，二者都叫attribute assignment。<br>首先看看__setattr__：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">object.__setattr__(self, name, value) </span><br><span class="line">Called when an attribute assignment <span class="keyword">is</span> attempted. This <span class="keyword">is</span> called instead of the normal mechanism</span><br></pre></td></tr></table></figure></p>
+<p>那什么是normal mechanism，简单来说就是x.__dict__[‘foobar’] = 123，不管 ‘foobar’ 之前是否是x的属性（当然赋值之后就一定是了）。但是如果 foobar 是类属性，且是data descriptor，那么会优先调用__set__。我们来看一个例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaxValDes</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, attr, max_val)</span>:</span></span><br><span class="line">        self.attr = attr</span><br><span class="line">        self.max_val = max_val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, typ)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> instance.__dict__[self.attr]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, instance, value)</span>:</span></span><br><span class="line">        instance.__dict__[self.attr] = min(self.max_val, value)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'MaxValDes __set__'</span>, self.attr, instance.__dict__[self.attr]</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span><span class="params">(object)</span>:</span></span><br><span class="line">    a = MaxValDes(<span class="string">'a'</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># def __setattr__(self, name, value):</span></span><br><span class="line">    <span class="comment">#     self.__dict__[name] = value</span></span><br><span class="line">    <span class="comment">#     print 'Widget __setattr__', name, self.__dict__[name] </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    w0 = Widget()</span><br><span class="line">    w0.a = <span class="number">123</span></span><br></pre></td></tr></table></figure></p>
+<p>输出如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MaxValDes __set__ a <span class="number">0</span></span><br><span class="line">MaxValDes __set__ a <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，即使Widget的实例也有一个 a 属性，但是调用 w.a 的时候会调用类属性 a（一个data descriptor）的__set__ 方法。如果不注释掉第18到第20行，输出如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Widget __setattr__ a <span class="number">0</span></span><br><span class="line">Widget __setattr__ a <span class="number">123</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，优先调用 Widget 的__setattr__方法。因此：对于属性赋值，obj = Clz(), 那么obj.attr = var，按照这样的顺序：</p>
+<ul>
+<li>如果Clz定义了__setattr__方法，那么调用该方法，否则</li>
+<li>如果“attr”是出现在Clz或其基类的__dict__中，且attr是data descriptor，那么调用其__set__方法, 否则</li>
+<li>等价调用obj.__dict__[‘attr’] = var</li>
+</ul>
+<h5 id="类属性赋值"><a href="#类属性赋值" class="headerlink" title="类属性赋值"></a>类属性赋值</h5><p>类一般实例化成对象使用，对类属性直接修改赋值，这个操作会有一个潜在的小“问题”。类的属性，所有实例都共享使用，如果实例没有单独赋值这个属性，那读取的都是类的属性，如果类修改了属性，那么实例所读取的属性值也会改变，见下例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Widget</span><span class="params">(object)</span>:</span></span><br><span class="line">       name = <span class="string">"a small device"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w=Widget()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w.name</span><br><span class="line">a small device</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Widget.name = <span class="string">"a duck"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>w.name</span><br><span class="line">a duck</span><br></pre></td></tr></table></figure></p>
+<p>如果类的属性是数据描述符呢？<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">RevealAccess</span><span class="params">(object)</span>:</span></span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, initval=None, name=<span class="string">'var'</span>)</span>:</span></span><br><span class="line">           self.val = initval</span><br><span class="line">           self.name = name</span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, nn)</span>:</span></span><br><span class="line">           <span class="keyword">print</span> <span class="string">"wdesc __getattribute__ ..."</span></span><br><span class="line">           <span class="keyword">return</span> super(RevealAccess, self).__getattribute__(nn)</span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, obj, objtype)</span>:</span></span><br><span class="line">           <span class="keyword">print</span> <span class="string">"wdes __get__ ..."</span></span><br><span class="line">           <span class="keyword">return</span> <span class="string">"a duck"</span></span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, obj, val)</span>:</span></span><br><span class="line">           <span class="keyword">print</span> <span class="string">"wdes __set__ ..."</span></span><br><span class="line">           self.val = val</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">(object)</span>:</span></span><br><span class="line">       x = RevealAccess(<span class="number">10</span>, <span class="string">'var "x"'</span>)</span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">__getattribute__</span><span class="params">(self, nn)</span>:</span></span><br><span class="line">           <span class="keyword">print</span> <span class="string">"MyClass __getattribute__ ..."</span></span><br><span class="line">           <span class="keyword">return</span> super(MyClass, self).__getattribute__(nn)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>MyClass.x</span><br><span class="line">wdes __get__ ...</span><br><span class="line">a duck</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m = MyClass()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m.x</span><br><span class="line">MyClass __getattribute__ ...</span><br><span class="line">wdes __get__ ...</span><br><span class="line">a duck</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m.x = <span class="string">"a pig"</span></span><br><span class="line">wdes __set__ ...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>MyClass.x = <span class="string">"a apple"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>MyClass.x</span><br><span class="line">a apple</span><br></pre></td></tr></table></figure></p>
+<p>从上面例子可以看出，如果属性是数据描述符，使用类名直接对属性赋值，不会去执行__set__，而是直接覆盖。此外，类查找属性不会经过“__getattribute__”，但属性若是描述符，会执行__get__。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/27/CentOS7系统打开文件数等资源设置/" class="archive-article-date">
-  	<time datetime="2018-05-27T02:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/27/CentOS7系统打开文件数等资源设置/">CentOS7系统打开文件数等资源设置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/SHELL变量截取/" class="archive-article-date">
-  	<time datetime="2018-05-16T07:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/SHELL变量截取/">SHELL变量截取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/25/Socket模块/" class="archive-article-date">
-  	<time datetime="2018-04-25T03:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/25/Socket模块/">Socket模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -302,7 +275,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -315,216 +288,103 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/19/Python-对象属性的访问/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/cryptsetup分区加密/" class="archive-article-date">
-  	<time datetime="2018-04-02T09:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/15/Super函数的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Super函数的使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/cryptsetup分区加密/">Cryptsetup分区加密</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/22/Linux系统优化/" class="archive-article-date">
-  	<time datetime="2018-03-22T06:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/Linux系统优化/">Linux系统优化</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/10/MySQL权限导出/" class="archive-article-date">
-  	<time datetime="2018-03-10T09:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/10/MySQL权限导出/">MySQL权限导出</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL管理/" class="article-tag-list-link color3">MySQL管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/21/Pysvn模块安装/" class="archive-article-date">
-  	<time datetime="2018-02-21T03:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/21/Pysvn模块安装/">Pysvn模块安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -548,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
