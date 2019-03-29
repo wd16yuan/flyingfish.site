@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Small Book</title>
+  <title>CentOS 禁用IPV6 | Small Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Small Book">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="目前国内使用IPV6较少，大部分互联网业务都是基于IPV4。网上有传，是国内电信运营商未开展IPv6基础设施的配套部署，目前的基础电信网络都是在IPv4的环境下运行。所以，咱们在部署服务器的时候，有必要禁用IPV6。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 禁用IPV6">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/CentOS7-禁用IPV6/index.html">
 <meta property="og:site_name" content="Small Book">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="目前国内使用IPV6较少，大部分互联网业务都是基于IPV4。网上有传，是国内电信运营商未开展IPv6基础设施的配套部署，目前的基础电信网络都是在IPv4的环境下运行。所以，咱们在部署服务器的时候，有必要禁用IPV6。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-29T09:22:38.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Small Book">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="CentOS 禁用IPV6">
+<meta name="twitter:description" content="目前国内使用IPV6较少，大部分互联网业务都是基于IPV4。网上有传，是国内电信运营商未开展IPv6基础设施的配套部署，目前的基础电信网络都是在IPv4的环境下运行。所以，咱们在部署服务器的时候，有必要禁用IPV6。">
   
     <link rel="alternative" href="/atom.xml" title="Small Book" type="application/atom+xml">
   
@@ -163,22 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-um卸载与安装" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-CentOS7-禁用IPV6" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/16/um卸载与安装/">Yum卸载与安装</a>
+    <h1 class="article-title" itemprop="name">
+      CentOS 禁用IPV6
     </h1>
   
 
         
-        <a href="/2018/06/16/um卸载与安装/" class="archive-article-date">
-  	<time datetime="2018-06-16T07:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
+        <a href="/2019/03/29/CentOS7-禁用IPV6/" class="archive-article-date">
+  	<time datetime="2019-03-29T08:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
 </a>
         
       </header>
@@ -189,14 +189,35 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>生活总是伴随着挖坑、填坑，与无数的折腾，今天就来折腾一回，卸载yum。<br>
-        
-          <a class="article-more-a" href="/2018/06/16/um卸载与安装/#more">more >></a>
-        
+        <p>目前国内使用IPV6较少，大部分互联网业务都是基于IPV4。网上有传，是国内电信运营商未开展IPv6基础设施的配套部署，目前的基础电信网络都是在IPv4的环境下运行。所以，咱们在部署服务器的时候，有必要禁用IPV6。</p>
+<a id="more"></a>
+<h5 id="CentOS-6-禁用IPV6"><a href="#CentOS-6-禁用IPV6" class="headerlink" title="CentOS 6.* 禁用IPV6"></a>CentOS 6.* 禁用IPV6</h5><p>CentOS 6.* 里禁用IPV6比较简单。</p>
+<ul>
+<li><p>可以在 ”/etc/modprobe.d“ 中创建 ”disable_ipv6.conf“文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"alias net-pf-10 off"</span> &gt; /etc/modprobe.d/disable_ipv6.conf</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"options ipv6 disable=1"</span> &gt;&gt; /etc/modprobe.d/disable_ipv6.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以添加配置到 ”/etc/sysctl.conf“</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"net.ipv6.conf.all.disable_ipv6 = 1"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"net.ipv6.conf.default.disable_ipv6 = 1"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">$ sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="CentOS-7-禁用IPV6"><a href="#CentOS-7-禁用IPV6" class="headerlink" title="CentOS 7.* 禁用IPV6"></a>CentOS 7.* 禁用IPV6</h5><ul>
+<li><p>添加以下配置到 ”/etc/sysctl.conf“</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"net.ipv6.conf.all.disable_ipv6 = 1"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"net.ipv6.conf.default.disable_ipv6 = 1"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">$ sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/etc/default/grub, 在 GRUB_CMDLINE_LINUX 后面句首加上 ipv6.disable=1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GRUB_TIMEOUT=5</span><br><span class="line">GRUB_DISTRIBUTOR=<span class="string">"<span class="variable">$(sed 's, release .*$,,g' /etc/system-release)</span>"</span></span><br><span class="line">GRUB_DEFAULT=saved</span><br><span class="line">GRUB_DISABLE_SUBMENU=<span class="literal">true</span></span><br><span class="line">GRUB_TERMINAL_OUTPUT=<span class="string">"console"</span></span><br><span class="line">GRUB_CMDLINE_LINUX=<span class="string">"ipv6.disable=1 crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap rhgb quiet"</span></span><br><span class="line">GRUB_DISABLE_RECOVERY=<span class="string">"true"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改后，运行 grub2-mkconfig -o /boot/grub2/grub.cfg 重新生成grub.cfg文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Found linux image: /boot/vmlinuz-3.10.0-693.2.2.el7.x86_64</span><br><span class="line">Found initrd image: /boot/initramfs-3.10.0-693.2.2.el7.x86_64.img</span><br><span class="line">Found linux image: /boot/vmlinuz-0-rescue-d46164e4bad645b8b787ceed3a2d792a</span><br><span class="line">Found initrd image: /boot/initramfs-0-rescue-d46164e4bad645b8b787ceed3a2d792a.img</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后重启系统，运行 lsmod|grep ipv6 ，可以看到ipv6已经关闭</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ lsmod|grep ipv6</span><br><span class="line">$ netstat -nutpl</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      856/sshd            </span><br><span class="line">tcp        0      0 0.0.0.0:2376            0.0.0.0:*               LISTEN      858/dockerd</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -225,16 +246,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/16/um卸载与安装/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/29/CentOS7-禁用IPV6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/26/scp协议原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">scp协议原理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -254,742 +334,14 @@
 
 
 
-
-  
-    <article id="post-CentOS6系统服务启动优化-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/03/CentOS6系统服务启动优化-1/">CentOS6系统服务启动优化</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/03/CentOS6系统服务启动优化-1/" class="archive-article-date">
-  	<time datetime="2018-06-03T02:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在将CentOS6做为服务器使用时，一般选择系统将采用最精简的安装方式，不需要开启的服务尽量关闭，因为开启不必要的服务越多，系统就相对越不安全，本人结合网上搜寻的资料，将一些系统服务罗列到以下表中。<br>
-        
-          <a class="article-more-a" href="/2018/06/03/CentOS6系统服务启动优化-1/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/03/CentOS6系统服务启动优化-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CentOS7系统打开文件数等资源设置" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/CentOS7系统打开文件数等资源设置/">CentOS7系统打开文件数等资源设置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/27/CentOS7系统打开文件数等资源设置/" class="archive-article-date">
-  	<time datetime="2018-05-27T02:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在bash中，有个ulimit命令，提供了对shell及该shell启动的进程的可用资源控制。主要包括打开文件描述符数量、用户的最大进程数量、coredump文件的大小等。<br>
-        
-          <a class="article-more-a" href="/2018/05/27/CentOS7系统打开文件数等资源设置/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/27/CentOS7系统打开文件数等资源设置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SHELL变量截取" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/16/SHELL变量截取/">SHELL变量截取</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/16/SHELL变量截取/" class="archive-article-date">
-  	<time datetime="2018-05-16T07:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Linux shell编程中，我们经常需要截取某个字符串来，继续操作，比如：截取日期来转换时间戳做条件比对。<br>
-        
-          <a class="article-more-a" href="/2018/05/16/SHELL变量截取/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/16/SHELL变量截取/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Socket模块" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/25/Socket模块/">Socket模块</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/25/Socket模块/" class="archive-article-date">
-  	<time datetime="2018-04-25T03:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="基本的-Python-socket-模块"><a href="#基本的-Python-socket-模块" class="headerlink" title="基本的 Python socket 模块"></a>基本的 Python socket 模块</h4><p>Python 提供了两个基本的 socket 模块。第一个是 Socket，它提供了标准的 BSD Sockets API。第二个是 SocketServer，它提供了服务器中心类，可以简化网络服务器的开发。Python使用一种异步的方式来实现这种功能，您可以提供一些插件类来处理服务器中应用程序特有的任务。<br>
-        
-          <a class="article-more-a" href="/2018/04/25/Socket模块/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/25/Socket模块/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-cryptsetup分区加密" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/cryptsetup分区加密/">Cryptsetup分区加密</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/02/cryptsetup分区加密/" class="archive-article-date">
-  	<time datetime="2018-04-02T09:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>cryptsetup实现了Linux内核提供的“dm-crypt”磁盘加密功能，是Linux下的一个分区加密工具，是在经过加密的块设备上再创建文件系统，然后再进行挂载使用，可以达到最底层的加密。使用cryptsetup对分区进行了加密后，这个分区就不再允许直接挂载。LUKS也是一种基于device mapper 机制的加密方案。如果要使用这个分区，必须对这个分区做一个映射，映射到/dev/mapper这个目录里去，我们只能挂载这个映射才能使用。然而做映射的时候是需要输入解密密码的。<br>
-        
-          <a class="article-more-a" href="/2018/04/02/cryptsetup分区加密/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/cryptsetup分区加密/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux系统优化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/Linux系统优化/">Linux系统优化</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/Linux系统优化/" class="archive-article-date">
-  	<time datetime="2018-03-22T06:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装好一台新的Linux服务器之后，需要对系统做一些配置优化，现在在这里集中记录一下。</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"><br>
-        
-          <a class="article-more-a" href="/2018/03/22/Linux系统优化/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/Linux系统优化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL权限导出" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/10/MySQL权限导出/">MySQL权限导出</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/10/MySQL权限导出/" class="archive-article-date">
-  	<time datetime="2018-03-10T09:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>长期使用Mysql以来，难免不会遇到服务器更换，数据库迁移，数据库设置的权限用户少，还可以单条设置，如果数量大，可以使用以下脚本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="function"><span class="title">expgrants</span></span>()&#123;</span><br><span class="line">    mysql -B  -u<span class="string">'root'</span> -p<span class="string">'123456'</span> -N <span class="variable">$@</span> -e <span class="string">"SELECT CONCAT('SHOW GRANTS FOR ''', user, '''@''', host, ''';') AS query FROM mysql.user"</span> | mysql -u<span class="string">'root'</span> -p<span class="string">'123456'</span> <span class="variable">$@</span> | sed <span class="string">'s/\(GRANT.*\)/\1;/;s/^\(Grants for .*\)/-- \1/;/--/&#123;x;p;x;&#125;'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">expgrants &gt; ./grants.sql</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/10/MySQL权限导出/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL管理/" class="article-tag-list-link color3">MySQL管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/10/MySQL权限导出/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Pysvn模块安装" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/21/Pysvn模块安装/">Pysvn模块安装</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/21/Pysvn模块安装/" class="archive-article-date">
-  	<time datetime="2018-02-21T03:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-21</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h6><p>system：CentOs6.8<br>python：2.7(编译安装)<br>svn：1.6 (yum安装)<br>apr、apr-utl：yum安装<br>pysvn：1.7.6(编译安装)<br>
-        
-          <a class="article-more-a" href="/2018/02/21/Pysvn模块安装/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/21/Pysvn模块安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1012,8 +364,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
