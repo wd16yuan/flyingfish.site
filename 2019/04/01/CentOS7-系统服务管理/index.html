@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/7 | strive</title>
+  <title>CentOS7 系统服务管理 | strive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="strive">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/index.html">
+  <meta name="description" content="systemd是RH7系列操作系统开始启用新的系统和服务管理器。它被设计为与sysv init脚本向后兼容，并提供了一些功能，例如在引导时并行启动系统服务，按需激活守护程序或基于依赖关系的服务控制逻辑。 systemd中引入了system units的概念，在units其中封装有关系统服务(service)，侦听套接字(socket)，以及与init系统启动相关信息。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7 系统服务管理">
+<meta property="og:url" content="http://yoursite.com/2019/04/01/CentOS7-系统服务管理/index.html">
 <meta property="og:site_name" content="strive">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="systemd是RH7系列操作系统开始启用新的系统和服务管理器。它被设计为与sysv init脚本向后兼容，并提供了一些功能，例如在引导时并行启动系统服务，按需激活守护程序或基于依赖关系的服务控制逻辑。 systemd中引入了system units的概念，在units其中封装有关系统服务(service)，侦听套接字(socket)，以及与init系统启动相关信息。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-01T08:06:36.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="strive">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="CentOS7 系统服务管理">
+<meta name="twitter:description" content="systemd是RH7系列操作系统开始启用新的系统和服务管理器。它被设计为与sysv init脚本向后兼容，并提供了一些功能，例如在引导时并行启动系统服务，按需激活守护程序或基于依赖关系的服务控制逻辑。 systemd中引入了system units的概念，在units其中封装有关系统服务(service)，侦听套接字(socket)，以及与init系统启动相关信息。">
   
     <link rel="alternative" href="/atom.xml" title="strive" type="application/atom+xml">
   
@@ -163,36 +165,145 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CentOS7-系统服务管理" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/Keepalived安装配置/" class="archive-article-date">
-  	<time datetime="2018-07-20T03:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/Keepalived安装配置/">Keepalived安装与配置</a>
+    <h1 class="article-title" itemprop="name">
+      CentOS7 系统服务管理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/01/CentOS7-系统服务管理/" class="archive-article-date">
+  	<time datetime="2019-04-01T06:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        
+      </header>
+    
+   <!-- 目录内容 -->
+    
+        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+        </p>
+        <div id="toc-article" class="toc-article">
+            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#systemd-unit-类型"><span class="toc-number">1.</span> <span class="toc-text">systemd unit 类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#unit文件保存位置"><span class="toc-number">2.</span> <span class="toc-text">unit文件保存位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#主要特性"><span class="toc-number">3.</span> <span class="toc-text">主要特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#兼容性"><span class="toc-number">4.</span> <span class="toc-text">兼容性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#管理系统服务"><span class="toc-number">5.</span> <span class="toc-text">管理系统服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Target"><span class="toc-number">6.</span> <span class="toc-text">Target</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#关机，重启相关"><span class="toc-number">7.</span> <span class="toc-text">关机，重启相关</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#远程管理"><span class="toc-number">8.</span> <span class="toc-text">远程管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Systemd-unit-配置文件指南"><span class="toc-number">9.</span> <span class="toc-text">Systemd unit 配置文件指南</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#修改unit文件"><span class="toc-number">10.</span> <span class="toc-text">修改unit文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实例"><span class="toc-number">11.</span> <span class="toc-text">实例</span></a></li></ol>
+        </div>
+        <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+            };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+            };
+        </script>
+    
+   <!-- 目录内容结束 -->
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>systemd是RH7系列操作系统开始启用新的系统和服务管理器。它被设计为与sysv init脚本向后兼容，并提供了一些功能，例如在引导时并行启动系统服务，按需激活守护程序或基于依赖关系的服务控制逻辑。</p>
+<p>systemd中引入了system units的概念，在units其中封装有关系统服务(service)，侦听套接字(socket)，以及与init系统启动相关信息。<br><a id="more"></a></p>
+<h5 id="systemd-unit-类型"><a href="#systemd-unit-类型" class="headerlink" title="systemd unit 类型"></a>systemd unit 类型</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">unit类型        |    文件后缀名   |   描述</span><br><span class="line">Service unit    |   .service    |   服务类</span><br><span class="line">Target unit     |   .target     |   一个unit服务组,用于模拟实现运行级别</span><br><span class="line">Automount unit  |  .automount   |   文件系统自动挂载点</span><br><span class="line">Device unit     |   .device     |   内核识别的设备文件</span><br><span class="line">Mount unit      |   .mount      |   文件系统挂载点</span><br><span class="line">Path unit       |   .path       |   文件或目录</span><br><span class="line">Scope unit      |   .scope      |   外部创建的进程</span><br><span class="line">Slice unit      |   .slice      |   A group of hierarchically organized units that manage system processes.</span><br><span class="line">Snapshot unit   |   .snapshot   |   系统快照</span><br><span class="line">Socket unit     |   .socket     |   套接字</span><br><span class="line">Swap unit       |   .swap       |   标识swap设备</span><br><span class="line">Timer unit      |   .timer      |   systemd的计时器</span><br></pre></td></tr></table></figure>
+<h5 id="unit文件保存位置"><a href="#unit文件保存位置" class="headerlink" title="unit文件保存位置"></a>unit文件保存位置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/systemd/system/    |   RPM包安装时分发的unit文件</span><br><span class="line">/run/systemd/system/        |   systemd运行时创建的文件</span><br><span class="line">/etc/systemd/system/        |   systemctl <span class="built_in">enable</span>创建的unit文件</span><br></pre></td></tr></table></figure>
+<h5 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h5><ul>
+<li>基于socket的激活机制：在程序不可用时，socket会保持可访问状态，并且所有消息都排队等待。实现了socket与服务程序分离，可以为服务启动一个socket而不需要立即启动程序，通过socket连接激活程序。并以此实现了服务的并行启动。</li>
+<li>基于bus的激活机制：使用d-bus进行进程间通信的系统服务可以在客户端应用程序第一次尝试与它们进行通信时按需启动。</li>
+<li>基于device的激活机制：使用d-bus进行进程间通信的系统服务可以在客户端应用程序第一次尝试与它们进行通信时按需启动。利用USB，CD等设备挂载时激活服务。</li>
+<li>基于path的激活机制：支持基于路径的激活的系统服务可以在特定文件或目录更改其状态时按需启动。</li>
+<li>基于mount的激活机制：systemd监视和管理挂载点或自动挂载点激活服务。</li>
+<li>并行启动系统服务：根据socket激活机制，只要服务所需要的侦听套接字就位，systemd就可以并行启动系统服务，减少系统启动时间。</li>
+<li>系统快照：保存unit的当前状态于持久设备中，必要时载入。例如重启前保存unit状态，重启后不重新初始化服务直接使用保存的状态。</li>
+<li>激活逻辑：在激活或关闭单元之前，systemd会计算它的依赖关系，创建一个临时事务，并验证这个事务是否一致。如果事务不一致，systemd将自动尝试纠正错误，并在报告错误之前从中删除不重要的作业。</li>
+<li>兼容sysv init：支持sysv init风格的启动脚本。</li>
+</ul>
+<h5 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h5><p>systemd系统和服务管理器的设计主要是兼容sysv init和upstart。主要的兼容性变化包括：</p>
+<ul>
+<li>systemd对运行级别的支持有限。对早期的0-6的运行级别概念，systemd是模拟实现的，并不能一一对应的实现，但并不是所有的systemd目标都可以直接映射到运行级别，因此，runlevel这个命令可能会返回n来指示未知的运行级别。同时避免使用init3，5来切换运行级别。</li>
+<li>systemctl子命令是预定义好的，不支持自定义命令。对于centos7以前编写sysv init启动脚本除了定义start，stop，status等命令以外，我们还可以在脚本中自定义其它的子命令。在systemd中不能实现。</li>
+<li>不能控制使用systemctl管理工具以外启动的服务，因为使用systemctl启动服务，systemctl会存储服务的元信息来查询和管理服务。所以通过命令行启动的守护进程，systemd是无法确定服务状态。</li>
+<li>systemd会检查服务运行状态，所以在关机时只会停止正在运行的服务进程。</li>
+<li>systemd不会读取任何标准输入数据流。</li>
+<li>systemd不会从调用用户及其会话继承任何上下文(如主目录和环境变量)，所以编写服务时都使用绝对路径。</li>
+<li>5分钟超时时间，任何服务如果没有被正常执行都会有5分钟超时时间限制。</li>
+</ul>
+<h5 id="管理系统服务"><a href="#管理系统服务" class="headerlink" title="管理系统服务"></a>管理系统服务</h5><p>在以前版本使用sysv init或upstart管理位于/etc/rc.d/init.d/目录中的脚本。在centos7中被service unit取代，是用systemctl命令管理。<br>1. 服务基本命令对比<br>service和systemctl<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service                         |   systemctl                                   |   </span><br><span class="line">service name start              |   systemctl start name.service                |   启动服务</span><br><span class="line">service name stop               |   systemctl stop name.service                 |   停止服务</span><br><span class="line">service name restart            |   systemctl restart name.service              |   重启服务(没启动的服务会启动)</span><br><span class="line">service name condrestart        |   systemctl try-restart name.service          |   只重启正在运行的服务</span><br><span class="line">service name reload             |   systemctl reload name.service               |   重载配置文件</span><br><span class="line">service name status             |   systemctl status name.service               |   检查服务状态</span><br><span class="line">service name status             |   systemctl is-active name.service            |   检查服务是否启动</span><br><span class="line">service --status-all            |   systemctl list-units --<span class="built_in">type</span> service --all   |   显示所有的服务状态</span><br></pre></td></tr></table></figure></p>
+<p>chkconfig和systemctl<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chkconfig               |   systemctl                                   |   </span><br><span class="line">chkconfig name on       |   systemctl <span class="built_in">enable</span> name.service               |   启用开机自启服务</span><br><span class="line">chkconfig name off      |   systemctl <span class="built_in">disable</span> name.service              |   停用自启服务</span><br><span class="line">chkconfig --list name   |   systemctl status name.service               |   检查服务状态</span><br><span class="line">chkconfig --list name   |   systemctl is-enabled name.service           |   查看服务是否自启</span><br><span class="line">chkconfig --list        |   systemctl list-unit-files --<span class="built_in">type</span> service    |   查看所有服务</span><br><span class="line">chkconfig --list        |   systemctl list-dependencies --after         |   列出在指定服务之前启动的服务.(依赖)</span><br><span class="line">chkconfig --list        |   systemctl list-dependencies --before        |   列出在指定服务之后启动的服务.(被依赖)</span><br></pre></td></tr></table></figure></p>
+<p>2. 服务状态信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Loaded      |   关于服务是否已经加载的信息，文件的绝对路径以及是否被启用的注释。</span><br><span class="line">Active      |   服务是否正在运行,然后是启动时间信息</span><br><span class="line">Main PID    |   服务主进程pid</span><br><span class="line">Docs        |   服务的帮助文档(man)</span><br><span class="line">Status      |   系统服务的额外信息</span><br><span class="line">Process     |   进程额外信息</span><br><span class="line">CGroup      |   Control Groups额外信息</span><br></pre></td></tr></table></figure></p>
+<p>3. 常用命令(start，stop，这些常用命令就不说明了)<br>列出所有当前激活服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl list-units --<span class="built_in">type</span> service</span><br></pre></td></tr></table></figure></p>
+<p>列出所有服务，不管是否激活(LOAD为notfound应该是还没有安装)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl list-units --<span class="built_in">type</span> service --all</span><br></pre></td></tr></table></figure></p>
+<p>列出可开机自启的服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl list-unit-files --<span class="built_in">type</span> service</span><br></pre></td></tr></table></figure></p>
+<p>重新加载服务：一个服务设置为开机启动使用enable会将/usr/lib/systemd/system/name.service软链接到/etc/systemd/system/。但是enable命令不会重写已经存在的链接，所以当我们修改了服务文件就需要重新加载。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl reenable name.service</span><br></pre></td></tr></table></figure></p>
+<p>禁用服务 mask会将 /etc/systemd/system/name.service软链接到/dev/null，从而禁止服务启用，反操作unmask。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl mask name.service</span><br></pre></td></tr></table></figure></p>
+<p>显示服务属性信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl show auditd</span><br></pre></td></tr></table></figure></p>
+<p>服务的依赖关系<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl list-dependencies chronyd.service</span><br></pre></td></tr></table></figure></p>
+<p>结束服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">kill</span> name.service</span><br></pre></td></tr></table></figure></p>
+<h5 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h5><p>在Centos7之前版本中，拥有0-6编号的一组运行级别代表特定的操作模式。在Centos7中由systemd的target取代，通过一系列依赖关系将其他systemd units组合在一起，来模拟一个运行级别的概念。在运行级别的基础上target有更丰富更灵活的运行模式。<br>1. sysv和systemd 区别<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Runlevel|   Target Units                            |</span><br><span class="line">    0   |   runlevel0.target, poweroff.target       |   关机</span><br><span class="line">    1   |   runlevel1.target, rescue.target         |   单用户,救援模式</span><br><span class="line">    2   |   runlevel2.target, multi-user.target     |   多用户,非完全启动的命令行(比如网络)</span><br><span class="line">    3   |   runlevel3.target, multi-user.target     |   建立了一个非图形化多用户系统</span><br><span class="line">    4   |   runlevel4.target, multi-user.target     |   预留,未启用</span><br><span class="line">    5   |   runlevel5.target, graphical.target      |   图形界面</span><br><span class="line">    6   |   runlevel6.target, reboot.target         |   重启</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sysv        |       systemd                         |</span><br><span class="line">runlevel    |   systemctl list-units --<span class="built_in">type</span> target  |   查看运行级别.</span><br><span class="line">init N      |   systemctl isolate name.target       |   改变运行级别</span><br></pre></td></tr></table></figure>
+<p>2. 常用命令<br>获取默认target<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl get-default</span><br></pre></td></tr></table></figure></p>
+<p>查看激活的target<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl list-units --<span class="built_in">type</span> target</span><br></pre></td></tr></table></figure></p>
+<p>查看所有target<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl list-units --<span class="built_in">type</span> target --all</span><br></pre></td></tr></table></figure></p>
+<p>修改默认target<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">set</span>-default name.target</span><br></pre></td></tr></table></figure></p>
+<p>切换级别<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl isolate graphical.target</span><br></pre></td></tr></table></figure></p>
+<p>救援模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl rescue</span><br><span class="line"><span class="comment"># 会加载驱动</span></span><br><span class="line">$ systemctl emergency</span><br><span class="line"><span class="comment"># emergency模式不会加载驱动和系统服务</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="关机，重启相关"><a href="#关机，重启相关" class="headerlink" title="关机，重启相关"></a>关机，重启相关</h5><p>关机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl halt </span><br><span class="line">$ systemctl poweroff</span><br></pre></td></tr></table></figure></p>
+<p>重启<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl reboot</span><br></pre></td></tr></table></figure></p>
+<p>挂起，将系统状态保存在内存中，并关闭大部分设备。(不推荐，容易断电导致内存中数据丢失)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">suspend</span></span><br></pre></td></tr></table></figure></p>
+<p>休眠，将系统状态保存在硬盘中并关闭。下次启动直接从保存的文件中读取系统信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl hibenate</span><br></pre></td></tr></table></figure></p>
+<p>休眠并挂起<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl hybrid-sleep</span><br></pre></td></tr></table></figure></p>
+<h5 id="远程管理"><a href="#远程管理" class="headerlink" title="远程管理"></a>远程管理</h5><p>除了在本地控制systemd系统和服务管理器之外，systemctl实用程序还允许您通过ssh协议与在远程服务器上运行的systemd进行交互。需要使用openssh协议，并且远程服务器上openssh server开启。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl -H root@192.168.1.237 list-units --<span class="built_in">type</span> service</span><br><span class="line">root@192.168.10.200<span class="string">'s password: </span></span><br><span class="line"><span class="string">  UNIT                                            LOAD   ACTIVE SUB     DESCRIPTION</span></span><br><span class="line"><span class="string">  auditd.service                                  loaded active running Security Auditing Service</span></span><br><span class="line"><span class="string">  chronyd.service                                 loaded active running NTP client/server</span></span><br><span class="line"><span class="string">  crond.service                                   loaded active running Command Scheduler</span></span><br><span class="line"><span class="string">  ...</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="Systemd-unit-配置文件指南"><a href="#Systemd-unit-配置文件指南" class="headerlink" title="Systemd unit 配置文件指南"></a>Systemd unit 配置文件指南</h5><p>通常我们需要做一些自定义服务或者是许多编译软件并没有提供systemd的服务文件，就需要自己在/etc/systemd/system/目录中创建，编写unit文件。文件命名格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unit_name.type_extension</span><br><span class="line">unit_name：为服务名称</span><br><span class="line">type_extension：为unit类型包括，service，target，socket，device等等</span><br></pre></td></tr></table></figure></p>
+<p>同时unit文件允许为服务补充一个目录用于存放配置文件的符号链接，比如redis.service就可以在/etc/systemd/system下创建redis.service.d/limit.conf。类似的目录redis.service.wants和redis.service.requires<br>1. unit 文件结构<br>由三部分组成：</p>
+<ul>
+<li><p>[Unit]-unit的基本信息和参数，包括：服务说明，unit依赖于那些服务(man 5 systemd.unit)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Description     |   简要说明</span><br><span class="line">Documentation   |   参考文档列表</span><br><span class="line">After           |   当前服务启动之前必须要满足的条件(通常是target,service,socket),Before相反,定义当前服务之后的动作</span><br><span class="line">Requires        |   其它依赖关系,要求列出的服务与当前服务一起激活,如果requires没启动成功,当前服务也失败</span><br><span class="line">Wants           |   比Requires更弱的依赖关系,wants不会影响当前服务的激活</span><br><span class="line">Conflicts       |   互斥依赖和requires相反</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[unit type]-根据unit类型特定的选项指令，比如service，target，socket，device(更多选项man 5 systemd.service，man 5 systemd.socket…)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Type            |   启动模式,配置影响execstart和服务进程相关选项</span><br><span class="line">ExecStart       |   服务启动所需要执行的命令或者脚本,还有ExecStartPre和ExecStartPost来指定ExecStar之前和之后的命令执行.Type=oneshot时可以指定多个,按顺序执行.</span><br><span class="line">ExecStop        |   服务停止执行的命令或脚本</span><br><span class="line">ExecReload      |   重新加载执行的命令或脚本</span><br><span class="line">Restart         |   重启服务执行的命令或脚本</span><br><span class="line">RemainAfterExit |   默认值是<span class="literal">false</span>.如果设置为<span class="literal">true</span>即使所有进程退出,服务也被视为活动.Type=oneshot时特别有用</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Type的模式</span><br><span class="line">simple  |   默认值,以execstart开始的进程是服务的主要进程</span><br><span class="line">forking |   从execstart开始的进程产生一个子进程,成为服务的主进程.父进程在启动完成时退出</span><br><span class="line">oneshot |   和simple类似,但是在启动后续服务后退出进程</span><br><span class="line">dbus    |   与simple类似,但在之前要获取一个d-bus name</span><br><span class="line">notify  |   与simple类似,但是在之前要获取 sd_notify() 函数发送一个通知消息</span><br><span class="line">idle    |   服务二进制的实际执行被延迟直到所有作业完成,这避免了状态输出与服务的shell输出的混淆</span><br></pre></td></tr></table></figure>
+<ul>
+<li>[Install]-服务在enable和disable命令时所用的安装信息(man 5 systemd.unit)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Alias           |   为服务设置除systemctl <span class="built_in">enable</span>外可使用的别名</span><br><span class="line">RequiredBy      |   依赖列表,当服务被设为开机自启所需要的依赖列表</span><br><span class="line">WantedBy        |   同上,弱依赖(通常设为WantedBy=multi-user.target)</span><br><span class="line">Also            |   指定一起安装或卸载的设备列表</span><br><span class="line">DefaultInstance |   启用默认实例</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="修改unit文件"><a href="#修改unit文件" class="headerlink" title="修改unit文件"></a>修改unit文件</h5><p>大多数系统服务和rpm包的默认unit文件都存储在/usr/lib/systemd/system/，通过符号链接到/etc/systemd/system/目录，在需要对启动过程进程自定义修改是不建议直接修改源文件，官方建议是通过下面两种方法进行自定义：<br>1. 创建配置文件目录/etc/systemd/system/unit.d/，在这个目录里做扩展配置和附加功能，具体步骤为：<br>创建目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /etc/systemd/system/name.service.d/</span><br></pre></td></tr></table></figure></p>
+<p>创建扩展文件，必须为.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch /etc/systemd/system/name.service.d/config_name.conf</span><br></pre></td></tr></table></figure></p>
+<p>修改功能，建议只创建专注于一个任务的小配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">ExecStartPost=/usr/<span class="built_in">local</span>/bin/custom.sh</span><br></pre></td></tr></table></figure></p>
+<p>重新加载<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl daemon-reload</span><br><span class="line">$ systemctl restart name.service</span><br></pre></td></tr></table></figure></p>
+<p>2. 在/etc/systemd/system/目录下创建单独的unit文件，而不是使用unit源文件的符号链接，具体步骤：<br>创建unit文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp /usr/lib/systemd/system/name.service /etc/systemd/system/name.service</span><br></pre></td></tr></table></figure></p>
+<p>修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/systemd/system/name.service</span><br></pre></td></tr></table></figure></p>
+<p>重新加载<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl daemon-reload</span><br><span class="line">$ systemctl restart name.service</span><br></pre></td></tr></table></figure></p>
+<p>3. 观察unit文件的重写或修改的差异信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ systemd-delta</span><br><span class="line">[EXTENDED]   /usr/lib/systemd/system/redis.service → /etc/systemd/system/redis.service.d/limit.conf</span><br><span class="line">[REDIRECTED] /etc/systemd/system/default.target → /usr/lib/systemd/system/default.target</span><br><span class="line">[EXTENDED]   /run/systemd/system/user-0.slice → /run/systemd/system/user-0.slice.d/50-Description.conf</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>关于差异的类型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[MASKED]        |   被mask的</span><br><span class="line">[EQUIVALENT]    |   内容上没有区别的文件</span><br><span class="line">[REDIRECTED]    |   重定向的文件(指向了其它文件)</span><br><span class="line">[OVERRIDEN]     |   重写覆盖的文件</span><br><span class="line">[EXTENDED]      |   使用/etc/systemd/system/unit.d/config_name.conf增加功能的文件</span><br><span class="line">[UNCHANGED]     |   没有修改的文件</span><br></pre></td></tr></table></figure></p>
+<h5 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h5><p>1. 启动一个redis的master-slave<br>复制.service文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/systemd/system/multi-user.target.wants</span><br><span class="line">$ cp redis.service redis-m.service</span><br><span class="line">$ cp redis.service redis-s1.service</span><br><span class="line">$ cp redis.service redis-s2.service</span><br></pre></td></tr></table></figure></p>
+<p>master<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ cat redis-m.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=Redis persistent key-value database</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/redis-server /opt/rs/7001/redis.conf --daemonize no</span><br><span class="line">ExecStop=/usr/libexec/redis-shutdown</span><br><span class="line">User=redis</span><br><span class="line">Group=redis</span><br><span class="line">RuntimeDirectory=redis</span><br><span class="line">RuntimeDirectoryMode=0755</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>slave<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ cat redis-s1.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=Redis persistent key-value database</span><br><span class="line">After=network.target redis-m.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/redis-server /opt/rs/7002/redis.conf --daemonize no</span><br><span class="line">ExecStop=/usr/libexec/redis-shutdown</span><br><span class="line">User=redis</span><br><span class="line">Group=redis</span><br><span class="line">RuntimeDirectory=redis</span><br><span class="line">RuntimeDirectoryMode=0755</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>设置开机自启<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#因为是放在默认的target目录下所以会自动启动,如果不是</span></span><br><span class="line">$ systemctl <span class="built_in">enable</span> redis-xx</span><br></pre></td></tr></table></figure></p>
+<p>2. 启动sentinel集群<br>复制.service文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/systemd/system</span><br><span class="line">$ cp /usr/lib/systemd/system/redis-sentinel.service sentinel-1.service</span><br></pre></td></tr></table></figure></p>
+<p>配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ cat sentinel-1.service </span><br><span class="line">[Unit]</span><br><span class="line">Description=Redis Sentinel</span><br><span class="line">After=network.target redis-m.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/redis-sentinel /opt/sentinel/8001/redis-sentinel.conf --daemonize no</span><br><span class="line">ExecStop=/usr/libexec/redis-shutdown redis-sentinel</span><br><span class="line">User=redis</span><br><span class="line">Group=redis</span><br><span class="line">RuntimeDirectory=redis</span><br><span class="line">RuntimeDirectoryMode=0755</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ cat sentinel-2.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=Redis Sentinel</span><br><span class="line">After=network.target sentinel-1.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/redis-sentinel /opt/sentinel/8002/redis-sentinel.conf --daemonize no</span><br><span class="line">ExecStop=/usr/libexec/redis-shutdown redis-sentinel</span><br><span class="line">User=redis</span><br><span class="line">Group=redis</span><br><span class="line">RuntimeDirectory=redis</span><br><span class="line">RuntimeDirectoryMode=0755</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ cat sentinel-3.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=Redis Sentinel</span><br><span class="line">After=network.target sentinel-2.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/redis-sentinel /opt/sentinel/8003/redis-sentinel.conf --daemonize no</span><br><span class="line">ExecStop=/usr/libexec/redis-shutdown redis-sentinel</span><br><span class="line">User=redis</span><br><span class="line">Group=redis</span><br><span class="line">RuntimeDirectory=redis</span><br><span class="line">RuntimeDirectoryMode=0755</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>设置开机自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">enable</span> sentinel-1.service</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,7 +315,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -217,66 +328,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/01/CentOS7-系统服务管理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/lsof使用详解/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/29/CentOS7-禁用IPV6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS 禁用IPV6</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/lsof使用详解/">lsof使用详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -299,8 +448,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
