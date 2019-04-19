@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Socket模块 | strive</title>
+  <title>使用sys.modules对当前模块的重写 | strive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本的 Python socket 模块Python 提供了两个基本的 socket 模块。第一个是 Socket，它提供了标准的 BSD Sockets API。第二个是 SocketServer，它提供了服务器中心类，可以简化网络服务器的开发。Python使用一种异步的方式来实现这种功能，您可以提供一些插件类来处理服务器中应用程序特有的任务。">
+  <meta name="description" content="在阅读 Twisted 的源码中，发现在导入 “reactor” 时，通过层层判断，最后导入的是一个 “EPollReactor” 实例对象，怀着学习的态度，想理解这个过程，于是操作了一番，发现了一些问题。">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Socket模块">
-<meta property="og:url" content="http://yoursite.com/2018/04/25/Socket模块/index.html">
+<meta property="og:title" content="使用sys.modules对当前模块的重写">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/使用sys-modules对当前模块的重写/index.html">
 <meta property="og:site_name" content="strive">
-<meta property="og:description" content="基本的 Python socket 模块Python 提供了两个基本的 socket 模块。第一个是 Socket，它提供了标准的 BSD Sockets API。第二个是 SocketServer，它提供了服务器中心类，可以简化网络服务器的开发。Python使用一种异步的方式来实现这种功能，您可以提供一些插件类来处理服务器中应用程序特有的任务。">
+<meta property="og:description" content="在阅读 Twisted 的源码中，发现在导入 “reactor” 时，通过层层判断，最后导入的是一个 “EPollReactor” 实例对象，怀着学习的态度，想理解这个过程，于是操作了一番，发现了一些问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T02:55:06.161Z">
+<meta property="og:updated_time" content="2019-04-19T11:03:16.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Socket模块">
-<meta name="twitter:description" content="基本的 Python socket 模块Python 提供了两个基本的 socket 模块。第一个是 Socket，它提供了标准的 BSD Sockets API。第二个是 SocketServer，它提供了服务器中心类，可以简化网络服务器的开发。Python使用一种异步的方式来实现这种功能，您可以提供一些插件类来处理服务器中应用程序特有的任务。">
+<meta name="twitter:title" content="使用sys.modules对当前模块的重写">
+<meta name="twitter:description" content="在阅读 Twisted 的源码中，发现在导入 “reactor” 时，通过层层判断，最后导入的是一个 “EPollReactor” 实例对象，怀着学习的态度，想理解这个过程，于是操作了一番，发现了一些问题。">
   
     <link rel="alternative" href="/atom.xml" title="strive" type="application/atom+xml">
   
@@ -165,20 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Socket模块" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-使用sys-modules对当前模块的重写" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Socket模块
+      使用sys.modules对当前模块的重写
     </h1>
   
 
         
-        <a href="/2018/04/25/Socket模块/" class="archive-article-date">
-  	<time datetime="2018-04-25T03:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
+        <a href="/2019/04/19/使用sys-modules对当前模块的重写/" class="archive-article-date">
+  	<time datetime="2019-04-19T10:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
 </a>
         
       </header>
@@ -189,110 +189,17 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="基本的-Python-socket-模块"><a href="#基本的-Python-socket-模块" class="headerlink" title="基本的 Python socket 模块"></a>基本的 Python socket 模块</h4><p>Python 提供了两个基本的 socket 模块。第一个是 Socket，它提供了标准的 BSD Sockets API。第二个是 SocketServer，它提供了服务器中心类，可以简化网络服务器的开发。Python使用一种异步的方式来实现这种功能，您可以提供一些插件类来处理服务器中应用程序特有的任务。<br><a id="more"></a></p>
-<h6 id="Python-类和模块"><a href="#Python-类和模块" class="headerlink" title="Python 类和模块"></a>Python 类和模块</h6><table>
-<thead>
-<tr>
-<th style="text-align:center">类/模块</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Socket</td>
-<td style="text-align:center">低层网络接口（每个 BSD API）</td>
-</tr>
-<tr>
-<td style="text-align:center">SocketServer</td>
-<td style="text-align:center">提供简化网络服务器开发的类</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Socket-模块"><a href="#Socket-模块" class="headerlink" title="Socket 模块"></a>Socket 模块</h4><p>Socket 模块提供了 UNIX 程序员所熟悉的基本网络服务（也称为 BSD API）。这个模块中提供了在构建 socket 服务器和客户机时所需要的所有功能。<br>这个 API 与标准的 C API 之间的区别在于它是面向对象的。在C中，socket 描述符是从 socket 调用中获得的，然后会作为一个参数传递给 BSD API 函数。在 Python 中，socket 方法会向应用 socket 方法的对象返回一个 socket 对象。</p>
-<h6 id="Socket-模块的类方法"><a href="#Socket-模块的类方法" class="headerlink" title="Socket 模块的类方法"></a>Socket 模块的类方法</h6><table>
-<thead>
-<tr>
-<th style="text-align:center">类/模块</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Socket</td>
-<td style="text-align:center">低层网络接口（每个 BSD API）</td>
-</tr>
-<tr>
-<td style="text-align:center">socket.socket(family, type)</td>
-<td style="text-align:center">创建并返回一个新的 socket 对象</td>
-</tr>
-<tr>
-<td style="text-align:center">socket.getfqdn(name)</td>
-<td style="text-align:center">将使用点号分隔的 IP 地址字符串转换成一个完整的域名</td>
-</tr>
-<tr>
-<td style="text-align:center">socket.gethostbyname(hostname)</td>
-<td style="text-align:center">将主机名解析为一个使用点号分隔的 IP 地址字符串</td>
-</tr>
-<tr>
-<td style="text-align:center">socket.fromfd(fd, family, type)</td>
-<td style="text-align:center">从现有的文件描述符创建一个 socket 对象</td>
-</tr>
-</tbody>
-</table>
-<h6 id="Socket-模块的实例方法"><a href="#Socket-模块的实例方法" class="headerlink" title="Socket 模块的实例方法"></a>Socket 模块的实例方法</h6><table>
-<thead>
-<tr>
-<th style="text-align:center">类/模块</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">sock.bind( (adrs, port) )</td>
-<td style="text-align:center">将 socket 绑定到一个地址和端口上</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.accept()</td>
-<td style="text-align:center">返回一个客户机 socket（带有客户机端的地址信息）</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.listen(backlog)</td>
-<td style="text-align:center">将 socket 设置成监听模式，能够监听 backlog 外来的连接请求</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.connect( (adrs, port) )</td>
-<td style="text-align:center">将 socket 连接到定义的主机和端口上</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.recv( buflen[, flags] )</td>
-<td style="text-align:center">从 socket 中接收数据，最多 buflen 个字符</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.recvfrom( buflen[, flags] )</td>
-<td style="text-align:center">从 socket 中接收数据，最多 buflen 个字符，同时返回数据来源的远程主机和端口号</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.send( data[, flags] )</td>
-<td style="text-align:center">通过 socket 发送数据</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.sendto( data[, flags], addr )</td>
-<td style="text-align:center">通过 socket 发送数据</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.close()</td>
-<td style="text-align:center">关闭 socket</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.getsockopt( lvl, optname )</td>
-<td style="text-align:center">获得指定 socket 选项的值</td>
-</tr>
-<tr>
-<td style="text-align:center">sock.setsockopt( lvl, optname, val )</td>
-<td style="text-align:center">设置指定 socket 选项的值</td>
-</tr>
-</tbody>
-</table>
+        <p>在阅读 Twisted 的源码中，发现在导入 “reactor” 时，通过层层判断，最后导入的是一个 “EPollReactor” 实例对象，怀着学习的态度，想理解这个过程，于是操作了一番，发现了一些问题。</p>
+<a id="more"></a>
+<p>测试环境：Python 2.7.9</p>
+<p>1. mod.py，一个测试用的模块文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">"this is mod modules ..."</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">del</span> sys.modules[<span class="string">'mod'</span>]</span><br><span class="line">sys.modules[<span class="string">'mod'</span>] = <span class="string">"test mod"</span></span><br></pre></td></tr></table></figure></p>
+<p>2. main.py，执行文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mod</span><br><span class="line"><span class="keyword">print</span> mod</span><br></pre></td></tr></table></figure></p>
+<p>3. 当执行的时候，会出现意想不到的错误<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ python main.py</span><br><span class="line">this is mod modules ...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"main.py"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    import mod</span><br><span class="line">  File <span class="string">"/root/test1111/mod.py"</span>, line 4, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    sys.modules[<span class="string">'mod'</span>] = <span class="string">"test mod"</span></span><br><span class="line">AttributeError: <span class="string">'NoneType'</span> object has no attribute <span class="string">'modules'</span></span><br></pre></td></tr></table></figure></p>
+<p>为什么会出现这样的情况呢？<br>因为我们执行“del sys.modules[‘mod’]”操作，这个模块将被销毁，即该模块的__dict__中的项会被强制设置为“None”，现在该模块的 “sys” 已经为 “None”。<br>解决方法，在使用 “sys”前，需要重新导入“import sys”。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">"this is mod modules ..."</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">del</span> sys.modules[<span class="string">'mod'</span>]</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.modules[<span class="string">'mod'</span>] = <span class="string">"test mod"</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="以下是测试案例二"><a href="#以下是测试案例二" class="headerlink" title="以下是测试案例二"></a>以下是测试案例二</h6><p>1. myModule.py，模块文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os, sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_os</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> os</span><br><span class="line"></span><br><span class="line">sys.modules[<span class="string">"myModule"</span>] = MyClass()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"MyClass"</span>, MyClass</span><br></pre></td></tr></table></figure></p>
+<p>2. main.py，主执行文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> myModule</span><br><span class="line"><span class="keyword">print</span> <span class="string">"main:"</span>,myModule.check_os()</span><br></pre></td></tr></table></figure></p>
+<p>3. 执行完，结果显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python main.py </span><br><span class="line">MyClass None</span><br><span class="line">main: None</span><br><span class="line">None</span><br></pre></td></tr></table></figure></p>
+<p>在这里我们将模块 “myModule” 替换为 “MyClass” 的实例，会发现，该模块原的类 “MyClass” 已经被设置为 “None” ，在 “main.py” 中导入的 “myModule” 为 “MyClass” 的实例，在执行 “check_os” 方法时，“os” 也已被设置为 “None”。<br>解决方法，需要在方法 “check_os” 中添加 “import os”<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os, sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_os</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> os</span><br><span class="line">        <span class="keyword">print</span> os</span><br><span class="line"></span><br><span class="line">sys.modules[<span class="string">"myModule"</span>] = MyClass()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"MyClass"</span>, MyClass</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -373,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/25/Socket模块/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/19/使用sys-modules对当前模块的重写/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -387,18 +294,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/16/SHELL变量截取/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SHELL变量截取
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/02/cryptsetup分区加密/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Cryptsetup分区加密</div>
+    <a href="/2019/04/03/SSH认证方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSH认证方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
