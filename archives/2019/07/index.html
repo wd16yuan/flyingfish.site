@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>strive</title>
+  <title>Archives: 2019/7 | strive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="strive">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
 <meta property="og:site_name" content="strive">
 <meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家创业型手游公司，此为个人博客，只为记录学习中的点点滴滴。">
 <meta property="og:locale" content="zh-Hans">
@@ -165,225 +165,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Linux系统优化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/Linux系统优化/">Linux系统优化</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/22/Linux系统优化/" class="archive-article-date">
-  	<time datetime="2018-03-22T06:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
-</a>
-        
-      </header>
     
-   <!-- 目录内容 -->
     
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装好一台新的Linux服务器之后，需要对系统做一些配置优化，现在在这里集中记录一下。</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"><br>
-        
-          <a class="article-more-a" href="/2018/03/22/Linux系统优化/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/22/Linux系统优化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL权限导出" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
+        <div class="archives">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/10/MySQL权限导出/">MySQL权限导出</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/10/MySQL权限导出/" class="archive-article-date">
-  	<time datetime="2018-03-10T09:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/04/生成器（Generators）/" class="archive-article-date">
+  	<time datetime="2019-07-04T03:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>长期使用Mysql以来，难免不会遇到服务器更换，数据库迁移，数据库设置的权限用户少，还可以单条设置，如果数量大，可以使用以下脚本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="function"><span class="title">expgrants</span></span>()&#123;</span><br><span class="line">    mysql -B  -u<span class="string">'root'</span> -p<span class="string">'123456'</span> -N <span class="variable">$@</span> -e <span class="string">"SELECT CONCAT('SHOW GRANTS FOR ''', user, '''@''', host, ''';') AS query FROM mysql.user"</span> | mysql -u<span class="string">'root'</span> -p<span class="string">'123456'</span> <span class="variable">$@</span> | sed <span class="string">'s/\(GRANT.*\)/\1;/;s/^\(Grants for .*\)/-- \1/;/--/&#123;x;p;x;&#125;'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">expgrants &gt; ./grants.sql</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/03/10/MySQL权限导出/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL管理/" class="article-tag-list-link color3">MySQL管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/10/MySQL权限导出/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Pysvn模块安装" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/21/Pysvn模块安装/">Pysvn模块安装</a>
+      <a class="archive-article-title" href="/2019/07/04/生成器（Generators）/">生成器（Generators）</a>
     </h1>
   
 
-        
-        <a href="/2018/02/21/Pysvn模块安装/" class="archive-article-date">
-  	<time datetime="2018-02-21T03:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-21</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h6><p>system：CentOs6.8<br>python：2.7(编译安装)<br>svn：1.6 (yum安装)<br>apr、apr-utl：yum安装<br>pysvn：1.7.6(编译安装)<br>
-        
-          <a class="article-more-a" href="/2018/02/21/Pysvn模块安装/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -395,7 +204,7 @@
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -408,43 +217,17 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/21/Pysvn模块安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+    </div></section>
   
+
+    
 
 
           </div>
@@ -466,9 +249,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
