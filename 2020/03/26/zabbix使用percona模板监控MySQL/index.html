@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>生成器（Generators） | 记忆里</title>
+  <title>Zabbix使用percona模板监控MySQL | 记忆里</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先我们要理解迭代器(iterators)。根据维基百科，迭代器是一个让程序员可以遍历一个容器（特别是列表）的对象。然而，一个迭代器在遍历并读取一个容器的数据元素时，并不会执行一个迭代。你可能有点晕了，那我们来个慢动作。换句话说这里有三个部分：  可迭代对象(Iterable) 迭代器(Iterator) 迭代(Iteration)上面这些部分互相联系。我们会先各个击破来讨论他们，然后再讨论生成器">
-<meta name="keywords" content="Python">
+  <meta name="description" content="Zabbix 中监控 MySQL 方式1. 使用自带模板监控 MySQLZabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。">
+<meta name="keywords" content="zabbix">
 <meta property="og:type" content="article">
-<meta property="og:title" content="生成器（Generators）">
-<meta property="og:url" content="http://yoursite.com/2019/07/04/生成器（Generators）/index.html">
+<meta property="og:title" content="Zabbix使用percona模板监控MySQL">
+<meta property="og:url" content="http://yoursite.com/2020/03/26/zabbix使用percona模板监控MySQL/index.html">
 <meta property="og:site_name" content="记忆里">
-<meta property="og:description" content="首先我们要理解迭代器(iterators)。根据维基百科，迭代器是一个让程序员可以遍历一个容器（特别是列表）的对象。然而，一个迭代器在遍历并读取一个容器的数据元素时，并不会执行一个迭代。你可能有点晕了，那我们来个慢动作。换句话说这里有三个部分：  可迭代对象(Iterable) 迭代器(Iterator) 迭代(Iteration)上面这些部分互相联系。我们会先各个击破来讨论他们，然后再讨论生成器">
+<meta property="og:description" content="Zabbix 中监控 MySQL 方式1. 使用自带模板监控 MySQLZabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-04T05:12:48.214Z">
+<meta property="og:updated_time" content="2020-05-13T09:12:02.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生成器（Generators）">
-<meta name="twitter:description" content="首先我们要理解迭代器(iterators)。根据维基百科，迭代器是一个让程序员可以遍历一个容器（特别是列表）的对象。然而，一个迭代器在遍历并读取一个容器的数据元素时，并不会执行一个迭代。你可能有点晕了，那我们来个慢动作。换句话说这里有三个部分：  可迭代对象(Iterable) 迭代器(Iterator) 迭代(Iteration)上面这些部分互相联系。我们会先各个击破来讨论他们，然后再讨论生成器">
+<meta name="twitter:title" content="Zabbix使用percona模板监控MySQL">
+<meta name="twitter:description" content="Zabbix 中监控 MySQL 方式1. 使用自带模板监控 MySQLZabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。">
   
     <link rel="alternative" href="/atom.xml" title="记忆里" type="application/atom+xml">
   
@@ -165,20 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-生成器（Generators）" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-zabbix使用percona模板监控MySQL" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      生成器（Generators）
+      Zabbix使用percona模板监控MySQL
     </h1>
   
 
         
-        <a href="/2019/07/04/生成器（Generators）/" class="archive-article-date">
-  	<time datetime="2019-07-04T03:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+        <a href="/2020/03/26/zabbix使用percona模板监控MySQL/" class="archive-article-date">
+  	<time datetime="2020-03-26T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
 </a>
         
       </header>
@@ -189,24 +189,25 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先我们要理解迭代器(iterators)。根据维基百科，迭代器是一个让程序员可以遍历一个容器（特别是列表）的对象。然而，一个迭代器在遍历并读取一个容器的数据元素时，并不会执行一个迭代。你可能有点晕了，那我们来个慢动作。换句话说这里有三个部分：</p>
-<ul>
-<li>可迭代对象(Iterable)</li>
-<li>迭代器(Iterator)</li>
-<li>迭代(Iteration)<br>上面这些部分互相联系。我们会先各个击破来讨论他们，然后再讨论生成器(generators)。</li>
-</ul>
-<a id="more"></a>
-<h6 id="可迭代对象-Iterable"><a href="#可迭代对象-Iterable" class="headerlink" title="可迭代对象(Iterable)"></a>可迭代对象(Iterable)</h6><p>Python中任意的对象，只要它定义了可以返回一个迭代器的__iter__方法，或者定义了可以支持下标索引的__getitem__方法(这些双下划线方法会在其他章节中全面解释)，那么它就是一个可迭代对象。简单说，可迭代对象就是能提供迭代器的任意对象。那迭代器又是什么呢？<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Titer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">t1=Titer()</span><br><span class="line">isinstance(t1, Iterable)</span><br><span class="line"><span class="comment"># Output:True</span></span><br></pre></td></tr></table></figure></p>
-<h6 id="迭代器-Iterator"><a href="#迭代器-Iterator" class="headerlink" title="迭代器(Iterator)"></a>迭代器(Iterator)</h6><p>任意可迭代对象，只要定义了next(Python2) 或者__next__方法，它就是一个迭代器。就这么简单。现在我们来理解迭代(iteration)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterator</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Titer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">t1=Titer()</span><br><span class="line">isinstance(t1, Iterator)</span><br><span class="line"><span class="comment"># Output:True</span></span><br></pre></td></tr></table></figure></p>
-<h6 id="迭代-Iteration"><a href="#迭代-Iteration" class="headerlink" title="迭代(Iteration)"></a>迭代(Iteration)</h6><p>用简单的话讲，它就是从某个地方（比如一个列表）取出一个元素的过程。当我们使用一个循环来遍历某个东西时，这个过程本身就叫迭代。现在既然我们有了这些术语的基本理解，那我们开始理解生成器吧。</p>
-<h6 id="生成器-Generators"><a href="#生成器-Generators" class="headerlink" title="生成器(Generators)"></a>生成器(Generators)</h6><p>生成器是一种迭代器，对其只能遍历一次。这是因为它们并没有把所有的值存在内存中，而是在运行时生成值。当执行完毕后，已经没有元素可输出，需要重新定义生成器，才能再执行next输出元素。可以通过遍历来使用它们，要么用一个“for”循环，要么将它们传递给任意可以进行迭代的函数和结构。大多数时候生成器是以函数来实现的。然而，它们并不返回一个值，而是yield(暂且译作“生出”)一个值。这里有个生成器函数的简单例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator_function</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> generator_function():</span><br><span class="line">    print(item)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Output: 0</span></span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line"><span class="comment"># 5</span></span><br><span class="line"><span class="comment"># 6</span></span><br><span class="line"><span class="comment"># 7</span></span><br><span class="line"><span class="comment"># 8</span></span><br><span class="line"><span class="comment"># 9</span></span><br></pre></td></tr></table></figure></p>
-<p>这个案例并不是非常实用。生成器最佳应用场景是：你不想同一时间将所有计算出来的大量结果集分配到内存当中，特别是结果集里还包含循环。<br>许多Python 2里的标准库函数都会返回列表，而Python 3都修改成了返回生成器，因为生成器占用更少的资源。<br>下面是一个计算斐波那契数列的生成器：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># generator version</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibon</span><span class="params">(n)</span>:</span></span><br><span class="line">    a = b = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        <span class="keyword">yield</span> a</span><br><span class="line">        a, b = b, a + b</span><br></pre></td></tr></table></figure></p>
-<p>函数使用方法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> fibon(<span class="number">1000000</span>):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure></p>
-<p>用这种方式，我们可以不用担心它会使用大量资源。然而，之前如果我们这样来实现的话：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibon</span><span class="params">(n)</span>:</span></span><br><span class="line">    a = b = <span class="number">1</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        result.append(a)</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></p>
-<p>这也许会在计算很大的输入参数时，用尽所有的资源。我们已经讨论过生成器使用一次迭代，但我们并没有测试过。在测试前你需要再知道一个Python内置函数：next()。它允许我们获取一个序列的下一个元素。那我们来验证下我们的理解：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator_function</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line"></span><br><span class="line">gen = generator_function()</span><br><span class="line">print(next(gen))</span><br><span class="line"><span class="comment"># Output: 0</span></span><br><span class="line">print(next(gen))</span><br><span class="line"><span class="comment"># Output: 1</span></span><br><span class="line">print(next(gen))</span><br><span class="line"><span class="comment"># Output: 2</span></span><br><span class="line">print(next(gen))</span><br><span class="line"><span class="comment"># Output: Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#            File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#         StopIteration</span></span><br></pre></td></tr></table></figure></p>
-<p>我们可以看到，在yield掉所有的值后，next()触发了一个StopIteration的异常。基本上这个异常告诉我们，所有的值都已经被yield完了。你也许会奇怪，为什么我们在使用for循环时没有这个异常呢？啊哈，答案很简单。for循环会自动捕捉到这个异常并停止调用next()。你知不知道Python中一些内置数据类型也支持迭代哦？我们这就去看看：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_string = <span class="string">"Yasoob"</span></span><br><span class="line">next(my_string)</span><br><span class="line"><span class="comment"># Output: Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#      File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#    TypeError: str object is not an iterator</span></span><br></pre></td></tr></table></figure></p>
-<p>好吧，这不是我们预期的。这个异常说那个str对象不是一个迭代器。对，就是这样！它是一个可迭代对象，而不是一个迭代器。这意味着它支持迭代，但我们不能直接对其进行迭代操作。那我们怎样才能对它实施迭代呢？是时候学习下另一个内置函数，iter。它将根据一个可迭代对象返回一个迭代器对象。这里是我们如何使用它：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_string = <span class="string">"Yasoob"</span></span><br><span class="line">my_iter = iter(my_string)</span><br><span class="line">next(my_iter)</span><br><span class="line"><span class="comment"># Output: 'Y'</span></span><br></pre></td></tr></table></figure></p>
-<p>现在好多啦。我肯定你已经爱上了学习生成器。一定要记住，想要完全掌握这个概念，你只有使用它。确保你按照这个模式，并在生成器对你有意义的任何时候都使用它。你绝对不会失望的！</p>
+        <h2 id="Zabbix-中监控-MySQL-方式"><a href="#Zabbix-中监控-MySQL-方式" class="headerlink" title="Zabbix 中监控 MySQL 方式"></a>Zabbix 中监控 MySQL 方式</h2><h6 id="1-使用自带模板监控-MySQL"><a href="#1-使用自带模板监控-MySQL" class="headerlink" title="1. 使用自带模板监控 MySQL"></a>1. 使用自带模板监控 MySQL</h6><p>Zabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。<br>具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。<br><a id="more"></a></p>
+<h6 id="2-使用-Percona-Monitoring-Plugins-监控-MySQL"><a href="#2-使用-Percona-Monitoring-Plugins-监控-MySQL" class="headerlink" title="2. 使用 Percona Monitoring Plugins 监控 MySQL"></a>2. 使用 Percona Monitoring Plugins 监控 MySQL</h6><h3 id="使用-Percona-Monitoring-Plugins-监控-MySQL"><a href="#使用-Percona-Monitoring-Plugins-监控-MySQL" class="headerlink" title="使用 Percona Monitoring Plugins 监控 MySQL"></a>使用 Percona Monitoring Plugins 监控 MySQL</h3><h6 id="1-系统需求"><a href="#1-系统需求" class="headerlink" title="1. 系统需求"></a>1. 系统需求</h6><p>被监控服务器上安装 zabbix-agent, php, php-mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@serverA ~]<span class="comment"># yum install zabbix-agent php php-mysql</span></span><br><span class="line">[root@serverA ~]<span class="comment"># rpm -qa zabbix-agent php php-mysql</span></span><br><span class="line">php-mysql-5.4.16-36.1.el7_2.1.x86_64</span><br><span class="line">php-5.4.16-36.1.el7_2.1.x86_64</span><br><span class="line">zabbix-agent-3.0.3-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
+<h6 id="2-安装配置-percona-zabbix-templates"><a href="#2-安装配置-percona-zabbix-templates" class="headerlink" title="2. 安装配置 percona-zabbix-templates"></a>2. 安装配置 percona-zabbix-templates</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 percona-zabbix-templates</span></span><br><span class="line">yum install https://www.percona.com/downloads/percona-monitoring-plugins/1.1.8/percona-zabbix-templates-1.1.8-1.noarch.rpm</span><br><span class="line"><span class="comment"># 也可配置 Percona yum 仓库后安装 </span></span><br><span class="line"><span class="comment"># yum install https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-3.noarch.rpm</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 配置 Zabbix Agent</span></span><br><span class="line">cp /var/lib/zabbix/percona/templates/userparameter_percona_mysql.conf /etc/zabbix/zabbix_agentd.d/</span><br><span class="line"></span><br><span class="line">systemctl restart zabbix-agent</span><br></pre></td></tr></table></figure>
+<h6 id="3-配置-Agent-上的-MySQL-连接"><a href="#3-配置-Agent-上的-MySQL-连接" class="headerlink" title="3. 配置 Agent 上的 MySQL 连接"></a>3. 配置 Agent 上的 MySQL 连接</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 .cnf 文件指定 MySQL 用户名和密码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生产环境请一定要设置复杂密码</span></span><br><span class="line">[root@serverA1 ~]<span class="comment"># cat /var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php.cnf</span></span><br><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$mysql_user</span> = <span class="string">'zabbix'</span>;</span><br><span class="line"><span class="variable">$mysql_pass</span> = <span class="string">'zabbix'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试脚本</span></span><br><span class="line">[root@serverA ~]<span class="comment"># /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh gg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 ~zabbix/.my.cnf，内容如下：</span></span><br><span class="line">[root@serverA ~]<span class="comment"># cat ~zabbix/.my.cnf</span></span><br><span class="line">[client]</span><br><span class="line">user = zabbix</span><br><span class="line">password = zabbix</span><br><span class="line"></span><br><span class="line"><span class="comment"># zabbix 用户测试脚本</span></span><br><span class="line">[root@serverA ~]<span class="comment"># sudo -u zabbix -H /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh running-slave</span></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h6 id="4-配置-Zabbix-Server"><a href="#4-配置-Zabbix-Server" class="headerlink" title="4. 配置 Zabbix Server"></a>4. 配置 Zabbix Server</h6><ol>
+<li>去 <a href="https://www.percona.com/downloads/percona-monitoring-plugins/" target="_blank" rel="noopener">https://www.percona.com/downloads/percona-monitoring-plugins/</a> 下载 Percona Monitoring Plugins 最新 tar.gz 源码包<br>（如果使用 Zabbix 3.0，自带模板有点旧了，并不能导入使用，后面给出解决办法）</li>
+<li>解压获取 zabbix/templates/ 目录</li>
+<li>通过 Zabbix Web 界面 (Configuration -&gt; Templates -&gt; Import) 导入 XML 模板，注意要另外选择上 Screens.</li>
+<li>配置主机关联上 Percona MySQL Server Template 模板。</li>
+</ol>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ol>
+<li>如果使用 Zabbix 3.0，自带模板比较旧，并不能导入使用<br>提示如下：<br><code>Invalid tag “/zabbix_export/date”: “YYYY-MM-DDThh:mm:ssZ” is expected.
+Invalid tag “/zabbix_export/templates/template(1)/items/item(1)”: the tag “snmp_community” is missing.</code><br>解决方法： 手动修改模板文件解决报错比较麻烦，有人提到可以将此模板导入 Zabbix 2.X 系列后，再导出到 Zabbix 3.0。<br>这里我们直接使用现成可用的 Zabbix 3.X 的 percona-zabbix-templates<br><a href="/assets/f/zbx_percona_mysql_template.xml">zbx_percona_mysql_template.xml 模板地址</a></li>
+<li>不出图<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># zabbix_get 能获取数据，但是不出图。</span></span><br><span class="line">[root@linux-node1 ~]<span class="comment"># zabbix_get -s 192.168.56.11 -k "MySQL.max-connections"</span></span><br><span class="line">151</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态文件权限，为之前测试脚本时的 root 权限，zabbix 用户并不能读写，所以获取不到数据</span></span><br><span class="line">[root@serverA ~]<span class="comment"># ll /tmp/localhost-mysql_cacti_stats.txt </span></span><br><span class="line">-rw-r--r-- 1 root root 1374 Jun 22 11:33 /tmp/localhost-mysql_cacti_stats.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 root 用户测试时生成的 mysql 状态文件</span></span><br><span class="line">[root@serverA ~]<span class="comment"># rm -f  /tmp/localhost-mysql_cacti_stats.txt </span></span><br><span class="line"><span class="comment"># 会自动生成 zabbix 用户权限的 mysql 状态文件</span></span><br><span class="line">[root@serverA ~]<span class="comment"># ll  /tmp/localhost-mysql_cacti_stats.txt </span></span><br><span class="line">-rw-rw-r-- 1 zabbix zabbix 1374 Jun 22 11:41 /tmp/localhost-mysql_cacti_stats.txt</span><br><span class="line"><span class="comment"># 过一会儿就可以看到出图了</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li><a href="/assets/f/percona_mysql.png">监控项详细说明</a></li>
+</ol>
 
       
 
@@ -220,7 +221,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
         		</li>
       		
 		</ul>
@@ -232,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Python模块应用/" class="article-tag-list-link color1">Python模块应用</a>
+        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
         		</li>
       		
 		</ul>
@@ -287,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/04/生成器（Generators）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/26/zabbix使用percona模板监控MySQL/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/17/Python3的一些与众不同/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Python3的一些与众不同
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/19/使用sys-modules对当前模块的重写/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用sys.modules对当前模块的重写</div>
+    <a href="/2019/11/06/python3-6安装pysvn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python3.6安装Pysvn</div>
       <i class="icon-circle-right"></i>
     </a>
   
