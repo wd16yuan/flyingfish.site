@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CentOS7系统打开文件数等资源设置 | 记忆里</title>
+  <title>Tag: 分享 | 记忆里</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在bash中，有个ulimit命令，提供了对shell及该shell启动的进程的可用资源控制。主要包括打开文件描述符数量、用户的最大进程数量、coredump文件的大小等。">
-<meta name="keywords" content="Linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7系统打开文件数等资源设置">
-<meta property="og:url" content="http://yoursite.com/2018/05/27/CentOS7系统打开文件数等资源设置/index.html">
+  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="记忆里">
+<meta property="og:url" content="http://yoursite.com/tags/分享/index.html">
 <meta property="og:site_name" content="记忆里">
-<meta property="og:description" content="在bash中，有个ulimit命令，提供了对shell及该shell启动的进程的可用资源控制。主要包括打开文件描述符数量、用户的最大进程数量、coredump文件的大小等。">
+<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家手游公司，此为个人博客，只为记录学习中的点点滴滴。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T02:54:27.937Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7系统打开文件数等资源设置">
-<meta name="twitter:description" content="在bash中，有个ulimit命令，提供了对shell及该shell启动的进程的可用资源控制。主要包括打开文件描述符数量、用户的最大进程数量、coredump文件的大小等。">
+<meta name="twitter:title" content="记忆里">
+<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家手游公司，此为个人博客，只为记录学习中的点点滴滴。">
   
     <link rel="alternative" href="/atom.xml" title="记忆里" type="application/atom+xml">
   
@@ -165,203 +163,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CentOS7系统打开文件数等资源设置" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      CentOS7系统打开文件数等资源设置
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/10/有史以来最令人惊叹的十大游戏宣传片/" class="archive-article-date">
+  	<time datetime="2018-11-10T04:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/10/有史以来最令人惊叹的十大游戏宣传片/">有史以来最令人惊叹的十大游戏宣传片</a>
     </h1>
   
 
-        
-        <a href="/2018/05/27/CentOS7系统打开文件数等资源设置/" class="archive-article-date">
-  	<time datetime="2018-05-27T02:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
-</a>
-        
-      </header>
-    
-   <!-- 目录内容 -->
-    
-        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-        </p>
-        <div id="toc-article" class="toc-article">
-            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#系统级设置"><span class="toc-number">1.</span> <span class="toc-text">系统级设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#单服务设置"><span class="toc-number">2.</span> <span class="toc-text">单服务设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#查看进程设置"><span class="toc-number">3.</span> <span class="toc-text">查看进程设置</span></a></li></ol>
-        </div>
-        <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-            };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-            };
-        </script>
-    
-   <!-- 目录内容结束 -->
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在bash中，有个ulimit命令，提供了对shell及该shell启动的进程的可用资源控制。主要包括打开文件描述符数量、用户的最大进程数量、coredump文件的大小等。<br><a id="more"></a><br>在centos 5/6 等版本中，资源限制的配置可以在 /etc/security/limits.conf 设置，针对root/user等各个用户或者*代表所有用户来设置。 当然，/etc/security/limits.d/ 中可以配置，系统是先加载limits.conf然后按照英文字母顺序加载limits.d目录下的配置文件，后加载配置覆盖之前的配置。 一个配置示例如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*     soft   nofile    100000</span><br><span class="line">*     hard   nofile    100000</span><br><span class="line">*     soft   nproc     100000</span><br><span class="line">*     hard   nproc     100000</span><br><span class="line">*     soft   core      100000</span><br><span class="line">*     hard   core      100000</span><br></pre></td></tr></table></figure></p>
-<p>不过，在CentOS 7 / RHEL 7的系统中，使用Systemd替代了之前的SysV，因此 /etc/security/limits.conf 文件的配置作用域缩小了一些。limits.conf这里的配置，只适用于通过PAM认证登录用户的资源限制，它对systemd的service的资源限制不生效。登录用户的限制，与上面讲的一样，通过 /etc/security/limits.conf 和 limits.d 来配置即可。如果想设置非root用户的默认最大进程数，可以修改/etc/security/limits.d/20-nproc.conf，内容如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Default limit for number of user's processes to prevent</span></span><br><span class="line"><span class="comment"># accidental fork bombs.</span></span><br><span class="line"><span class="comment"># See rhbz #432903 for reasoning.</span></span><br><span class="line"></span><br><span class="line">*          soft    nproc     4096</span><br><span class="line">root       soft    nproc     unlimited</span><br></pre></td></tr></table></figure></p>
-<h6 id="系统级设置"><a href="#系统级设置" class="headerlink" title="系统级设置"></a>系统级设置</h6><p>对于systemd service的资源限制，如何配置呢？</p>
-<p>全局的配置，放在文件 /etc/systemd/system.conf 和 /etc/systemd/user.conf。 同时，也会加载两个对应的目录中的所有.conf文件 /etc/systemd/system.conf.d/<em>.conf 和 /etc/systemd/user.conf.d/</em>.conf。其中，system.conf 是系统实例使用的，user.conf用户实例使用的，systemd默认就是系统实例方式启动，可以通过 “ps aux|grep systemd” 查看 systemd 进程启动参数。而用户实例，一般作为调试，可以使用 “/usr/lib/systemd/systemd –user” 方式启动，修改 /etc/systemd/user.conf 配置，将测试用的 service 服务文件拷贝到 “~/.config/systemd/user” ，执行命令 “systemctl start –user service” 启动服务，然后“cat /proc/&lt;进程号&gt;/limits”查看用户实例的配置在进程中是否生效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemd 进程号为1，默认使用 “--system” 方式启动</span></span><br><span class="line">$ ps aux|grep systemd</span><br><span class="line">root          1  0.0  0.3 125272  3820 ?        Ss   06:25   0:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 21</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p .config/systemd/user</span><br><span class="line"><span class="comment"># 使用httpd服务文件作测试</span></span><br><span class="line">$ cp /usr/lib/systemd/system/httpd.service .config/systemd/user/</span><br><span class="line"><span class="comment"># 用户实例模式方式启动httpd</span></span><br><span class="line">$ systemctl --user start httpd.service</span><br><span class="line"><span class="comment"># 查看用户实例模式下所打开的进程</span></span><br><span class="line">$ systemctl --user</span><br><span class="line">UNIT                                                                                LOAD   ACTIVE SUB     DESCRIPTION</span><br><span class="line">sys-devices-pci0000:00-0000:00:07.1-ata2-host2-target2:0:0-2:0:0:0-block-sr0.device loaded active plugged VMware_Virtual_IDE_CDROM_Drive CentOS_7_x86_64</span><br><span class="line">sys-devices-pci0000:00-0000:00:10.0-host0-target0:0:0-0:0:0:0-block-sda-sda1.device loaded active plugged VMware_Virtual_S 1</span><br><span class="line">sys-devices-pci0000:00-0000:00:10.0-host0-target0:0:0-0:0:0:0-block-sda-sda2.device loaded active plugged LVM PV 13ltfH-aj0L-FPJv-0Ah5-b0kn-rUgQ-35U2dj on /dev/sda2 2</span><br><span class="line">sys-devices-pci0000:00-0000:00:10.0-host0-target0:0:0-0:0:0:0-block-sda.device      loaded active plugged VMware_Virtual_S</span><br><span class="line">sys-devices-pci0000:00-0000:00:10.0-host0-target0:0:1-0:0:1:0-block-sdb.device      loaded active plugged VMware_Virtual_S</span><br><span class="line">sys-devices-pci0000:00-0000:00:11.0-0000:02:01.0-net-ens33.device                   loaded active plugged 82545EM Gigabit Ethernet Controller (Copper) (PRO/1000 MT Single Port Adapter)</span><br><span class="line">sys-devices-pci0000:00-0000:00:11.0-0000:02:02.0-sound-card0.device                 loaded active plugged ES1371/ES1373 / Creative Labs CT2518 (Audio PCI 64V/128/5200 / Creative CT4810/CT5803/CT5806 [Sound Blaster PCI])</span><br><span class="line">sys-devices-platform-serial8250-tty-ttyS1.device                                    loaded active plugged /sys/devices/platform/serial8250/tty/ttyS1</span><br><span class="line">sys-devices-platform-serial8250-tty-ttyS2.device                                    loaded active plugged /sys/devices/platform/serial8250/tty/ttyS2</span><br><span class="line">sys-devices-platform-serial8250-tty-ttyS3.device                                    loaded active plugged /sys/devices/platform/serial8250/tty/ttyS3</span><br><span class="line">sys-devices-pnp0-00:05-tty-ttyS0.device                                             loaded active plugged /sys/devices/pnp0/00:05/tty/ttyS0</span><br><span class="line">sys-devices-virtual-block-dm\x2d0.device                                            loaded active plugged /sys/devices/virtual/block/dm-0</span><br><span class="line">sys-devices-virtual-block-dm\x2d1.device                                            loaded active plugged /sys/devices/virtual/block/dm-1</span><br><span class="line">sys-devices-virtual-block-dm\x2d2.device                                            loaded active plugged /sys/devices/virtual/block/dm-2</span><br><span class="line">sys-devices-virtual-block-loop0.device                                              loaded active plugged /sys/devices/virtual/block/loop0</span><br><span class="line">sys-devices-virtual-block-loop1.device                                              loaded active plugged /sys/devices/virtual/block/loop1</span><br><span class="line">sys-devices-virtual-net-docker0.device                                              loaded active plugged /sys/devices/virtual/net/docker0</span><br><span class="line">sys-module-configfs.device                                                          loaded active plugged /sys/module/configfs</span><br><span class="line">sys-subsystem-net-devices-docker0.device                                            loaded active plugged /sys/subsystem/net/devices/docker0</span><br><span class="line">sys-subsystem-net-devices-ens33.device                                              loaded active plugged 82545EM Gigabit Ethernet Controller (Copper) (PRO/1000 MT Single Port Adapter)</span><br><span class="line">-.mount                                                                             loaded active mounted /</span><br><span class="line">boot.mount                                                                          loaded active mounted /boot</span><br><span class="line">dev-hugepages.mount                                                                 loaded active mounted /dev/hugepages</span><br><span class="line">dev-mqueue.mount                                                                    loaded active mounted /dev/mqueue</span><br><span class="line">run-user-0.mount                                                                    loaded active mounted /run/user/0</span><br><span class="line">sys-kernel-config.mount                                                             loaded active mounted /sys/kernel/config</span><br><span class="line">sys-kernel-debug.mount                                                              loaded active mounted /sys/kernel/debug</span><br><span class="line">var-lib-docker-devicemapper.mount                                                   loaded active mounted /var/lib/docker/devicemapper</span><br><span class="line">var-lib-docker-plugins.mount                                                        loaded active mounted /var/lib/docker/plugins</span><br><span class="line">httpd.service                                                                       loaded active running The Apache HTTP Server</span><br><span class="line">-.slice                                                                             loaded active active  -.slice</span><br><span class="line">dev-dm\x2d1.swap                                                                    loaded active active  /dev/dm-1</span><br><span class="line">basic.target                                                                        loaded active active  Basic System</span><br><span class="line">default.target                                                                      loaded active active  Default</span><br><span class="line">paths.target                                                                        loaded active active  Paths</span><br><span class="line">sockets.target                                                                      loaded active active  Sockets</span><br><span class="line">timers.target                                                                       loaded active active  Timers</span><br><span class="line"></span><br><span class="line">LOAD   = Reflects whether the unit definition was properly loaded.</span><br><span class="line">ACTIVE = The high-level unit activation state, i.e. generalization of SUB.</span><br><span class="line">SUB    = The low-level unit activation state, values depend on unit <span class="built_in">type</span>.</span><br><span class="line"></span><br><span class="line">37 loaded units listed. Pass --all to see loaded but inactive units, too.</span><br><span class="line">To show all installed unit files use <span class="string">'systemctl list-unit-files'</span>.</span><br><span class="line"></span><br><span class="line">$ netstat -nutpl</span><br><span class="line">tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      3852/httpd          </span><br><span class="line">tcp        0      0 0.0.0.0:1573            0.0.0.0:*               LISTEN      879/sshd            </span><br><span class="line">tcp6       0      0 :::1573                 :::*                    LISTEN      879/sshd            </span><br><span class="line">tcp6       0      0 :::2376                 :::*                    LISTEN      881/dockerd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 http 在用户实例模式下，limit配置是否生效</span></span><br><span class="line">$ /proc/3852/limits</span><br><span class="line">Limit                     Soft Limit           Hard Limit           Units     </span><br><span class="line">Max cpu time              unlimited            unlimited            seconds   </span><br><span class="line">Max file size             unlimited            unlimited            bytes     </span><br><span class="line">Max data size             unlimited            unlimited            bytes     </span><br><span class="line">Max stack size            8388608              unlimited            bytes     </span><br><span class="line">Max core file size        0                    unlimited            bytes     </span><br><span class="line">Max resident <span class="built_in">set</span>          unlimited            unlimited            bytes     </span><br><span class="line">Max processes             65535                65535                processes </span><br><span class="line">Max open files            6001                 6001                 files     </span><br><span class="line">Max locked memory         65536                65536                bytes     </span><br><span class="line">Max address space         unlimited            unlimited            bytes     </span><br><span class="line">Max file locks            unlimited            unlimited            locks     </span><br><span class="line">Max pending signals       3819                 3819                 signals   </span><br><span class="line">Max msgqueue size         819200               819200               bytes     </span><br><span class="line">Max nice priority         0                    0                    </span><br><span class="line">Max realtime priority     0                    0                    </span><br><span class="line">Max realtime timeout      unlimited            unlimited            us</span><br></pre></td></tr></table></figure>
-<p>一般的sevice，使用system.conf中的配置即可。systemd.conf.d/*.conf中配置会覆盖system.conf。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DefaultLimitCORE=infinity</span><br><span class="line">DefaultLimitNOFILE=100000</span><br><span class="line">DefaultLimitNPROC=100000</span><br></pre></td></tr></table></figure></p>
-<p>注意：修改了system.conf后，需要重启系统才会生效。</p>
-<h6 id="单服务设置"><a href="#单服务设置" class="headerlink" title="单服务设置"></a>单服务设置</h6><p>针对单个Service，也可以设置，以nginx为例。<br>编辑 /usr/lib/systemd/system/nginx.service 文件，或者 /usr/lib/systemd/system/nginx.service.d/my-limit.conf 文件，做如下配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">LimitCORE=infinity</span><br><span class="line">LimitNOFILE=100000</span><br><span class="line">LimitNPROC=100000</span><br></pre></td></tr></table></figure></p>
-<p>然后运行如下命令，才能生效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl daemon-reload</span><br><span class="line">$ sudo systemctl restart nginx.service</span><br></pre></td></tr></table></figure></p>
-<h6 id="查看进程设置"><a href="#查看进程设置" class="headerlink" title="查看进程设置"></a>查看进程设置</h6><p>查看一个进程的limit设置：cat /proc/YOUR-PID/limits<br>例如我的一个nginx service的配置效果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ cat /proc/$(cat /var/run/nginx.pid)/limits</span><br><span class="line">Limit                     Soft Limit           Hard Limit           Units</span><br><span class="line">Max cpu time              unlimited            unlimited            seconds</span><br><span class="line">Max file size             unlimited            unlimited            bytes</span><br><span class="line">Max data size             unlimited            unlimited            bytes</span><br><span class="line">Max stack size            8388608              unlimited            bytes</span><br><span class="line">Max core file size        unlimited            unlimited            bytes</span><br><span class="line">Max resident <span class="built_in">set</span>          unlimited            unlimited            bytes</span><br><span class="line">Max processes             100000               100000               processes</span><br><span class="line">Max open files            100000               100000               files</span><br><span class="line">Max locked memory         65536                65536                bytes</span><br><span class="line">Max address space         unlimited            unlimited            bytes</span><br><span class="line">Max file locks            unlimited            unlimited            locks</span><br><span class="line">Max pending signals       1030606              1030606              signals</span><br><span class="line">Max msgqueue size         819200               819200               bytes</span><br><span class="line">Max nice priority         0                    0</span><br><span class="line">Max realtime priority     0                    0</span><br><span class="line">Max realtime timeout      unlimited            unlimited            us</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分享</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
+        			<a href="/categories/平凡的生活/" class="article-tag-list-link color1">平凡的生活</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/27/CentOS7系统打开文件数等资源设置/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/06/03/CentOS6系统服务启动优化-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CentOS6系统服务启动优化
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/05/16/SHELL变量截取/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SHELL变量截取</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -384,9 +250,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
