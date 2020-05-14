@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: Linux系统与服务 | 记忆里</title>
+  <title>Zabbix使用percona模板监控MySQL | 记忆里</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家手游公司，此为个人博客，只为记录学习中的点点滴滴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="记忆里">
-<meta property="og:url" content="http://yoursite.com/categories/Linux系统与服务/index.html">
+  <meta name="description" content="Zabbix 中监控 MySQL 方式1. 使用自带模板监控 MySQLZabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。">
+<meta name="keywords" content="zabbix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zabbix使用percona模板监控MySQL">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/zabbix使用percona模板监控MySQL/index.html">
 <meta property="og:site_name" content="记忆里">
-<meta property="og:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta property="og:description" content="Zabbix 中监控 MySQL 方式1. 使用自带模板监控 MySQLZabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-14T02:29:04.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记忆里">
-<meta name="twitter:description" content="从事游戏运维多年，擅长运维自动化开发，现就职于一家手游公司，此为个人博客，只为记录学习中的点点滴滴。">
+<meta name="twitter:title" content="Zabbix使用percona模板监控MySQL">
+<meta name="twitter:description" content="Zabbix 中监控 MySQL 方式1. 使用自带模板监控 MySQLZabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。">
   
     <link rel="alternative" href="/atom.xml" title="记忆里" type="application/atom+xml">
   
@@ -163,232 +165,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-zabbix使用percona模板监控MySQL" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/06/CentOS-6下编译安装Subversion-1-9-12/" class="archive-article-date">
-  	<time datetime="2019-11-06T06:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/06/CentOS-6下编译安装Subversion-1-9-12/">CentOS 6下编译安装Subversion 1.9.12</a>
+    <h1 class="article-title" itemprop="name">
+      Zabbix使用percona模板监控MySQL
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/03/SSH认证方式/" class="archive-article-date">
-  	<time datetime="2019-04-03T06:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/03/SSH认证方式/">SSH认证方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/01/CentOS7-系统服务管理/" class="archive-article-date">
-  	<time datetime="2019-04-01T06:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/01/CentOS7-系统服务管理/">CentOS7 系统服务管理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/29/CentOS7-禁用IPV6/" class="archive-article-date">
-  	<time datetime="2019-03-29T08:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/29/CentOS7-禁用IPV6/">CentOS 禁用IPV6</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/zabbix使用percona模板监控MySQL/" class="archive-article-date">
+        
+        <a href="/2019/03/26/zabbix使用percona模板监控MySQL/" class="archive-article-date">
   	<time datetime="2019-03-26T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/zabbix使用percona模板监控MySQL/">Zabbix使用percona模板监控MySQL</a>
-    </h1>
-  
+        
+      </header>
+    
+   <!-- 目录内容 -->
+    
+   <!-- 目录内容结束 -->
 
-        <div class="article-info info-on-right">
-          
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Zabbix-中监控-MySQL-方式"><a href="#Zabbix-中监控-MySQL-方式" class="headerlink" title="Zabbix 中监控 MySQL 方式"></a>Zabbix 中监控 MySQL 方式</h2><h6 id="1-使用自带模板监控-MySQL"><a href="#1-使用自带模板监控-MySQL" class="headerlink" title="1. 使用自带模板监控 MySQL"></a>1. 使用自带模板监控 MySQL</h6><p>Zabbix-Agent 本身并没有提供直接对 MySQL 监控的 Key，所以首先需要通过自定义 Key 来应用自带的 MySQL 模板。<br>具体步骤暂不说明。本文主要说明使用 Percona Monitoring Plugins 监控 MySQL 的方式。<br><a id="more"></a></p>
+<h6 id="2-使用-Percona-Monitoring-Plugins-监控-MySQL"><a href="#2-使用-Percona-Monitoring-Plugins-监控-MySQL" class="headerlink" title="2. 使用 Percona Monitoring Plugins 监控 MySQL"></a>2. 使用 Percona Monitoring Plugins 监控 MySQL</h6><h3 id="使用-Percona-Monitoring-Plugins-监控-MySQL"><a href="#使用-Percona-Monitoring-Plugins-监控-MySQL" class="headerlink" title="使用 Percona Monitoring Plugins 监控 MySQL"></a>使用 Percona Monitoring Plugins 监控 MySQL</h3><h6 id="1-系统需求"><a href="#1-系统需求" class="headerlink" title="1. 系统需求"></a>1. 系统需求</h6><p>被监控服务器上安装 zabbix-agent, php, php-mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@serverA ~]<span class="comment"># yum install zabbix-agent php php-mysql</span></span><br><span class="line">[root@serverA ~]<span class="comment"># rpm -qa zabbix-agent php php-mysql</span></span><br><span class="line">php-mysql-5.4.16-36.1.el7_2.1.x86_64</span><br><span class="line">php-5.4.16-36.1.el7_2.1.x86_64</span><br><span class="line">zabbix-agent-3.0.3-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
+<h6 id="2-安装配置-percona-zabbix-templates"><a href="#2-安装配置-percona-zabbix-templates" class="headerlink" title="2. 安装配置 percona-zabbix-templates"></a>2. 安装配置 percona-zabbix-templates</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 percona-zabbix-templates</span></span><br><span class="line">yum install https://www.percona.com/downloads/percona-monitoring-plugins/1.1.8/percona-zabbix-templates-1.1.8-1.noarch.rpm</span><br><span class="line"><span class="comment"># 也可配置 Percona yum 仓库后安装 </span></span><br><span class="line"><span class="comment"># yum install https://www.percona.com/redir/downloads/percona-release/redhat/latest/percona-release-0.1-3.noarch.rpm</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 配置 Zabbix Agent</span></span><br><span class="line">cp /var/lib/zabbix/percona/templates/userparameter_percona_mysql.conf /etc/zabbix/zabbix_agentd.d/</span><br><span class="line"></span><br><span class="line">systemctl restart zabbix-agent</span><br></pre></td></tr></table></figure>
+<h6 id="3-配置-Agent-上的-MySQL-连接"><a href="#3-配置-Agent-上的-MySQL-连接" class="headerlink" title="3. 配置 Agent 上的 MySQL 连接"></a>3. 配置 Agent 上的 MySQL 连接</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 .cnf 文件指定 MySQL 用户名和密码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生产环境请一定要设置复杂密码</span></span><br><span class="line">[root@serverA1 ~]<span class="comment"># cat /var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php.cnf</span></span><br><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$mysql_user</span> = <span class="string">'zabbix'</span>;</span><br><span class="line"><span class="variable">$mysql_pass</span> = <span class="string">'zabbix'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试脚本</span></span><br><span class="line">[root@serverA ~]<span class="comment"># /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh gg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 ~zabbix/.my.cnf，内容如下：</span></span><br><span class="line">[root@serverA ~]<span class="comment"># cat ~zabbix/.my.cnf</span></span><br><span class="line">[client]</span><br><span class="line">user = zabbix</span><br><span class="line">password = zabbix</span><br><span class="line"></span><br><span class="line"><span class="comment"># zabbix 用户测试脚本</span></span><br><span class="line">[root@serverA ~]<span class="comment"># sudo -u zabbix -H /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh running-slave</span></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h6 id="4-配置-Zabbix-Server"><a href="#4-配置-Zabbix-Server" class="headerlink" title="4. 配置 Zabbix Server"></a>4. 配置 Zabbix Server</h6><ol>
+<li>去 <a href="https://www.percona.com/downloads/percona-monitoring-plugins/" target="_blank" rel="noopener">https://www.percona.com/downloads/percona-monitoring-plugins/</a> 下载 Percona Monitoring Plugins 最新 tar.gz 源码包<br>（如果使用 Zabbix 3.0，自带模板有点旧了，并不能导入使用，后面给出解决办法）</li>
+<li>解压获取 zabbix/templates/ 目录</li>
+<li>通过 Zabbix Web 界面 (Configuration -&gt; Templates -&gt; Import) 导入 XML 模板，注意要另外选择上 Screens.</li>
+<li>配置主机关联上 Percona MySQL Server Template 模板。</li>
+</ol>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ol>
+<li>如果使用 Zabbix 3.0，自带模板比较旧，并不能导入使用<br>提示如下：<br><code>Invalid tag “/zabbix_export/date”: “YYYY-MM-DDThh:mm:ssZ” is expected.
+Invalid tag “/zabbix_export/templates/template(1)/items/item(1)”: the tag “snmp_community” is missing.</code><br>解决方法： 手动修改模板文件解决报错比较麻烦，有人提到可以将此模板导入 Zabbix 2.X 系列后，再导出到 Zabbix 3.0。<br>这里我们直接使用现成可用的 Zabbix 3.X 的 percona-zabbix-templates<br><a href="/assets/f/zbx_percona_mysql_template.xml">zbx_percona_mysql_template.xml 模板地址</a></li>
+<li>不出图<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># zabbix_get 能获取数据，但是不出图。</span></span><br><span class="line">[root@linux-node1 ~]<span class="comment"># zabbix_get -s 192.168.56.11 -k "MySQL.max-connections"</span></span><br><span class="line">151</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态文件权限，为之前测试脚本时的 root 权限，zabbix 用户并不能读写，所以获取不到数据</span></span><br><span class="line">[root@serverA ~]<span class="comment"># ll /tmp/localhost-mysql_cacti_stats.txt </span></span><br><span class="line">-rw-r--r-- 1 root root 1374 Jun 22 11:33 /tmp/localhost-mysql_cacti_stats.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 root 用户测试时生成的 mysql 状态文件</span></span><br><span class="line">[root@serverA ~]<span class="comment"># rm -f  /tmp/localhost-mysql_cacti_stats.txt </span></span><br><span class="line"><span class="comment"># 会自动生成 zabbix 用户权限的 mysql 状态文件</span></span><br><span class="line">[root@serverA ~]<span class="comment"># ll  /tmp/localhost-mysql_cacti_stats.txt </span></span><br><span class="line">-rw-rw-r-- 1 zabbix zabbix 1374 Jun 22 11:41 /tmp/localhost-mysql_cacti_stats.txt</span><br><span class="line"><span class="comment"># 过一会儿就可以看到出图了</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li><a href="/assets/f/percona_mysql.png">监控项详细说明</a></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -400,300 +227,125 @@
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/scp协议原理/" class="archive-article-date">
-  	<time datetime="2019-03-26T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/scp协议原理/">scp协议原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/20/Shadowsock安装与使用/" class="archive-article-date">
-  	<time datetime="2018-12-20T02:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/20/Shadowsock安装与使用/">Shadowsock安装与使用</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shadowsock</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代理</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/26/zabbix使用percona模板监控MySQL/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/Keepalived安装配置/" class="archive-article-date">
-  	<time datetime="2018-07-20T03:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/29/CentOS7-禁用IPV6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CentOS 禁用IPV6
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/26/scp协议原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">scp协议原理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/Keepalived安装配置/">Keepalived安装与配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/lsof使用详解/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/lsof使用详解/">lsof使用详解</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/22/理解-IOWAIT-WIO/" class="archive-article-date">
-  	<time datetime="2018-06-22T02:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/22/理解-IOWAIT-WIO/">理解 %IOWAIT</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux系统与服务/" class="article-tag-list-link color1">Linux系统与服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/Linux系统与服务/page/2/">2</a><a class="extend next" rel="next" href="/categories/Linux系统与服务/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -717,10 +369,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
